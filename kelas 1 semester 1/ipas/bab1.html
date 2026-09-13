@@ -1,1 +1,124 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Bab 1 - Tubuhku Hebat</title><link rel="stylesheet" href="styles.css"></head><body><header class="topbar"><a class="brand" href="index.html"><div class="logo">🏠</div><div><h1>IPAS</h1><span>Bab 1</span></div></a><nav class="nav"><a href="index.html">⌂ Beranda</a><a href="bab2.html">Bab 2 →</a></nav></header><main class="container"><article class="lesson"><h2>🌟 Bab 1: Tubuhku Hebat!</h2><h3>Tujuan Pembelajaran</h3><ul><li>Menyebutkan bagian tubuh.</li><li>Menjelaskan kegunaan mata, telinga, hidung, tangan, dan kaki.</li><li>Menunjukkan kebiasaan hidup bersih dan sehat.</li></ul><div class="story"><strong>Ayo Ikuti Cerita!</strong><p>Rani mencuci muka, menyikat gigi, dan memakai seragam. Di cermin ia melihat mata, hidung, mulut, telinga, tangan, dan kaki. Bu Guru berkata, “Setiap bagian tubuh memiliki tugas. Ayo kita rawat bersama!”</p></div><h3>Kenali Tubuhmu</h3><p>Mata digunakan untuk melihat. Telinga untuk mendengar. Hidung untuk mencium. Mulut untuk makan dan berbicara. Tangan untuk memegang dan menulis. Kaki untuk berjalan dan berlari.</p><div class="activity"><h3>🔎 Ayo Mengamati</h3><p>Gunakan cermin. Tunjuk lima bagian tubuhmu dan sebutkan kegunaannya. Setelah itu, cuci tangan dengan sabun selama 20 detik.</p></div><div class="activity"><h3>🧪 Ayo Mencoba</h3><p>Gambarlah dirimu. Beri tanda pada mata, telinga, hidung, mulut, tangan, dan kaki. Ceritakan satu kegiatan yang dilakukan setiap bagian.</p></div><div class="quiz"><h3>🎯 Kuis</h3><p>Bagian tubuh untuk melihat adalah...</p><div class="answers"><button data-correct="true">Mata</button><button>Kaki</button><button>Telinga</button><button>Rambut</button></div><div class="feedback"></div></div><div class="activity"><h3>🌟 Aku Sudah Belajar</h3><ul class="checklist"><li>☐ Aku dapat menyebutkan bagian tubuh.</li><li>☐ Aku tahu fungsi pancaindra.</li><li>☐ Aku rajin menjaga kebersihan tubuh.</li></ul></div></article></main><footer class="footer">✨ Kembali ke <a href="index.html">Beranda IPAS</a> ✨</footer><script>document.querySelectorAll('.answers button').forEach(function(b){b.onclick=function(){document.querySelectorAll('.answers button').forEach(function(x){x.disabled=true;if(x.dataset.correct)x.classList.add('correct')});b.classList.add(b.dataset.correct?'correct':'wrong');document.querySelector('.feedback').textContent=b.dataset.correct?'✅ Hebat! Jawabanmu benar.':'❌ Belum tepat. Jawaban yang benar adalah mata.'}})</script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bab 1 - Tubuhku Hebat</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="bab1-interactive.css">
+</head>
+<body>
+  <header class="lesson-header">
+    <div class="lesson-shell lesson-header-inner">
+      <a class="back-link" href="index.html" aria-label="Kembali ke beranda">← Kembali</a>
+      <div class="header-title"><strong>BAB 1</strong><span>Tubuhku Hebat</span></div>
+      <div class="header-stars" aria-label="Jumlah bintang"><span aria-hidden="true">⭐</span> <span id="headerStars">0</span></div>
+    </div>
+  </header>
+
+  <main class="lesson-shell">
+    <section class="progress-panel" aria-label="Progress belajar">
+      <div class="progress-label"><span id="progressText">Belajar 1 dari 5</span><span id="progressPercent">0%</span></div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </section>
+
+    <section class="welcome" aria-labelledby="welcomeTitle">
+      <div class="welcome-character" aria-hidden="true">👋</div>
+      <div><h1 id="welcomeTitle">Hai, Teman!</h1><p>Hari ini kita akan mengenal tubuh kita. Yuk belajar sambil bermain!</p></div>
+    </section>
+
+    <section class="lesson-section" id="materi" aria-labelledby="materiTitle">
+      <h2 class="section-heading" id="materiTitle">👀 Kenali bagian tubuh</h2>
+      <p class="section-note">Sentuh kartu untuk mengetahui kegunaannya.</p>
+      <div class="body-grid">
+        <button class="body-card" data-part="Mata" data-info="Aku digunakan untuk melihat." aria-controls="bodyDetail"><span class="icon" aria-hidden="true">👀</span>Mata</button>
+        <button class="body-card" data-part="Telinga" data-info="Aku digunakan untuk mendengar." aria-controls="bodyDetail"><span class="icon" aria-hidden="true">👂</span>Telinga</button>
+        <button class="body-card" data-part="Hidung" data-info="Aku digunakan untuk mencium bau." aria-controls="bodyDetail"><span class="icon" aria-hidden="true">👃</span>Hidung</button>
+        <button class="body-card" data-part="Mulut" data-info="Aku digunakan untuk makan dan berbicara." aria-controls="bodyDetail"><span class="icon" aria-hidden="true">👄</span>Mulut</button>
+      </div>
+      <div class="detail-box" id="bodyDetail" role="status" aria-live="polite">Pilih satu kartu tubuh untuk mulai mengamati.</div>
+      <div class="activity"><h3>🔎 Ayo Mengamati</h3><p>Lihat tanganmu. Berapa jari yang ada pada satu tangan?</p><div class="observation-options"><button data-observation="5">5</button><button data-observation="6">6</button><button data-observation="10">10</button></div><div class="feedback" id="observationFeedback" aria-live="polite"></div></div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="gameTitle">
+      <h2 class="section-heading" id="gameTitle">🎮 Game 1: Tebak bagian tubuh</h2>
+      <p class="section-note">Bagian tubuh mana yang digunakan untuk melihat?</p>
+      <div class="question-grid"><button class="choice" data-guess="Mata"><span class="icon" aria-hidden="true">👀</span>Mata</button><button class="choice" data-guess="Telinga"><span class="icon" aria-hidden="true">👂</span>Telinga</button><button class="choice" data-guess="Hidung"><span class="icon" aria-hidden="true">👃</span>Hidung</button></div>
+      <div class="feedback" id="guessFeedback" aria-live="polite"></div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="matchTitle">
+      <h2 class="section-heading" id="matchTitle">🔗 Game 2: Cocokkan fungsi</h2>
+      <p class="section-note">Ketuk satu gambar lalu ketuk fungsi yang sesuai.</p>
+      <div class="match-grid" id="matchGrid">
+        <button class="match-card" data-match="lihat">👀 Mata</button><button class="match-card" data-match="dengar">Mendengar</button>
+        <button class="match-card" data-match="dengar">👂 Telinga</button><button class="match-card" data-match="cium">Mencium</button>
+        <button class="match-card" data-match="cium">👃 Hidung</button><button class="match-card" data-match="bicara">Makan / berbicara</button>
+        <button class="match-card" data-match="bicara">👄 Mulut</button><button class="match-card" data-match="lihat">Melihat</button>
+      </div>
+      <div class="feedback" id="matchFeedback" aria-live="polite"></div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="habitTitle">
+      <h2 class="section-heading" id="habitTitle">🧼 Game 3: Kebiasaan baik</h2>
+      <p class="section-note">Pilih kebiasaan yang baik untuk tubuh.</p>
+      <div class="habit-grid">
+        <button class="habit-card good" data-good="true"><span class="icon" aria-hidden="true">🪥</span>Gosok gigi</button>
+        <button class="habit-card good" data-good="true"><span class="icon" aria-hidden="true">🧼</span>Cuci tangan</button>
+        <button class="habit-card good" data-good="true"><span class="icon" aria-hidden="true">🛁</span>Mandi</button>
+        <button class="habit-card bad" data-good="false"><span class="icon" aria-hidden="true">🍭</span>Terlalu banyak permen</button>
+        <button class="habit-card bad" data-good="false"><span class="icon" aria-hidden="true">🗑️</span>Membuang sampah sembarangan</button>
+      </div>
+      <div class="feedback" id="habitFeedback" aria-live="polite"></div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="quizTitle">
+      <h2 class="section-heading" id="quizTitle">✏️ Latihan 5 soal</h2>
+      <p class="section-note">Pilih satu jawaban pada setiap soal. Kamu mendapat satu bintang setelah semua soal selesai.</p>
+      <div class="quiz-list">
+        <div class="quiz-card" data-answer="Mata"><h3>1. Apa yang digunakan untuk melihat?</h3><div class="answer-grid"><button class="answer-button">👀 Mata</button><button class="answer-button">👂 Telinga</button><button class="answer-button">👃 Hidung</button></div><div class="feedback"></div></div>
+        <div class="quiz-card" data-answer="Telinga"><h3>2. Apa yang digunakan untuk mendengar?</h3><div class="answer-grid"><button class="answer-button">👄 Mulut</button><button class="answer-button">👂 Telinga</button><button class="answer-button">🦶 Kaki</button></div><div class="feedback"></div></div>
+        <div class="quiz-card" data-answer="Hidung"><h3>3. Apa yang digunakan untuk mencium?</h3><div class="answer-grid"><button class="answer-button">👃 Hidung</button><button class="answer-button">👀 Mata</button><button class="answer-button">✋ Tangan</button></div><div class="feedback"></div></div>
+        <div class="quiz-card" data-answer="Tangan"><h3>4. Apa yang digunakan untuk memegang pensil?</h3><div class="answer-grid"><button class="answer-button">👂 Telinga</button><button class="answer-button">✋ Tangan</button><button class="answer-button">👃 Hidung</button></div><div class="feedback"></div></div>
+        <div class="quiz-card" data-answer="Cuci tangan"><h3>5. Kebiasaan yang baik sebelum makan adalah...</h3><div class="answer-grid"><button class="answer-button">Bermain terus</button><button class="answer-button">Tidur</button><button class="answer-button">🧼 Cuci tangan</button></div><div class="feedback"></div></div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="reflectionTitle">
+      <h2 class="section-heading" id="reflectionTitle">💭 Refleksi</h2>
+      <p class="section-note">Ceritakan pengalaman belajarmu hari ini.</p>
+      <div class="reflection-box"><label for="reflection">Hal baru yang aku pelajari:</label><textarea id="reflection" placeholder="Aku belajar bahwa..."></textarea><button class="primary-button" id="saveReflection">Simpan refleksi</button><div class="feedback" id="reflectionFeedback" aria-live="polite"></div></div>
+    </section>
+
+    <section class="reward" id="reward" aria-live="polite"><div aria-hidden="true" style="font-size:3rem">🎉</div><h2>Hebat!</h2><p>Kamu sudah menyelesaikan Bab 1 - Tubuhku Hebat.</p><div class="reward-stars">⭐⭐⭐⭐⭐</div><strong>5 Bintang!</strong></section>
+    <nav class="chapter-nav" aria-label="Navigasi bab"><a class="back-link" href="index.html">← Kembali ke Beranda</a><a class="next-link" href="bab2.html">Lanjut ke Bab 2 →</a></nav>
+  </main>
+
+  <script>
+    const storageKey = 'IPAS';
+    const totalSteps = 5;
+    const saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+    const state = saved.bab1 || { steps: [], stars: 0, quiz: {}, reflection: '' };
+    state.steps = Array.isArray(state.steps) ? state.steps : [];
+    state.quiz = state.quiz || {};
+    state.reflection = state.reflection || '';
+    const save = () => { const current = JSON.parse(localStorage.getItem(storageKey) || '{}'); current.bab1 = state; localStorage.setItem(storageKey, JSON.stringify(current)); };
+    const complete = (step, message) => { if (!state.steps.includes(step)) { state.steps.push(step); state.stars = Math.min(5, state.stars + 1); save(); } updateProgress(); if (message) show(message, 'good'); };
+    const show = (message, kind, target) => { const element = target || document.getElementById('bodyDetail'); element.textContent = message; element.className = 'feedback ' + (kind || ''); };
+    const updateProgress = () => { const done = Math.min(totalSteps, state.steps.length); const percent = Math.round(done / totalSteps * 100); document.getElementById('progressText').textContent = 'Belajar ' + Math.min(done + 1, totalSteps) + ' dari ' + totalSteps; document.getElementById('progressPercent').textContent = percent + '%'; document.getElementById('progressFill').style.width = percent + '%'; document.getElementById('headerStars').textContent = state.stars; if (done === totalSteps) document.getElementById('reward').classList.add('show'); };
+
+    document.querySelectorAll('.body-card').forEach(card => card.addEventListener('click', () => { document.getElementById('bodyDetail').innerHTML = '<strong>' + card.dataset.part + '</strong><br>' + card.dataset.info; complete('materi'); }));
+    document.querySelectorAll('[data-observation]').forEach(button => button.addEventListener('click', () => { const correct = button.dataset.observation === '5'; show(correct ? '⭐ Benar! Kita memiliki lima jari pada satu tangan.' : '😊 Belum tepat. Satu tangan memiliki lima jari.', correct ? 'good' : 'try', document.getElementById('observationFeedback')); if (correct) complete('materi'); }));
+    document.querySelectorAll('[data-guess]').forEach(button => button.addEventListener('click', () => { const correct = button.dataset.guess === 'Mata'; show(correct ? '🎉 Hebat! Mata digunakan untuk melihat.' : '😊 Belum tepat. Yuk coba lagi!', correct ? 'good' : 'try', document.getElementById('guessFeedback')); if (correct) complete('tebak'); }));
+
+    let firstMatch = null;
+    document.querySelectorAll('.match-card').forEach(card => card.addEventListener('click', () => { if (card.classList.contains('matched')) return; if (!firstMatch) { firstMatch = card; card.classList.add('selected'); return; } card.classList.add('selected'); const feedback = document.getElementById('matchFeedback'); if (firstMatch !== card && firstMatch.dataset.match === card.dataset.match) { firstMatch.classList.remove('selected'); card.classList.remove('selected'); firstMatch.classList.add('matched'); card.classList.add('matched'); firstMatch = null; if (document.querySelectorAll('.match-card.matched').length === 8) { feedback.textContent = '🎉 Semua pasangan benar!'; feedback.className = 'feedback good'; complete('cocokkan'); } } else { feedback.textContent = '😊 Pasangan belum cocok. Coba lagi.'; feedback.className = 'feedback try'; setTimeout(() => { firstMatch.classList.remove('selected'); card.classList.remove('selected'); firstMatch = null; }, 450); } }));
+    document.querySelectorAll('.habit-card').forEach(card => card.addEventListener('click', () => { card.classList.toggle('selected'); const selected = document.querySelectorAll('.habit-card.selected'); const good = document.querySelectorAll('.habit-card.good.selected').length; const bad = document.querySelectorAll('.habit-card.bad.selected').length; const feedback = document.getElementById('habitFeedback'); if (bad) { feedback.textContent = '😊 Pilih kebiasaan yang membantu tubuh tetap sehat.'; feedback.className = 'feedback try'; } else if (good === 3) { feedback.textContent = '🎉 Hebat! Semua kebiasaan baik sudah dipilih.'; feedback.className = 'feedback good'; complete('kebiasaan'); } else { feedback.textContent = 'Pilih semua kebiasaan baik.'; feedback.className = 'feedback'; } }));
+
+    document.querySelectorAll('.quiz-card').forEach((quiz, index) => { quiz.querySelectorAll('.answer-button').forEach(button => button.addEventListener('click', () => { if (state.quiz[index]) return; const answer = button.textContent.replace(/^\S+\s*/, '').trim(); const correct = answer === quiz.dataset.answer; state.quiz[index] = correct; quiz.querySelectorAll('.answer-button').forEach(item => { item.disabled = true; if (item.textContent.replace(/^\S+\s*/, '').trim() === quiz.dataset.answer) item.classList.add('correct'); }); button.classList.add(correct ? 'correct' : 'wrong'); const feedback = quiz.querySelector('.feedback'); feedback.textContent = correct ? '✅ Jawaban benar!' : '😊 Belum tepat. Jawaban yang benar sudah ditandai.'; feedback.className = 'feedback ' + (correct ? 'good' : 'try'); if (Object.keys(state.quiz).length === 5) complete('kuis'); save(); })); });
+    document.getElementById('saveReflection').addEventListener('click', () => { state.reflection = document.getElementById('reflection').value.trim(); save(); const feedback = document.getElementById('reflectionFeedback'); feedback.textContent = state.reflection ? '✅ Refleksi tersimpan.' : 'Tuliskan satu hal yang kamu pelajari.'; feedback.className = 'feedback ' + (state.reflection ? 'good' : 'try'); });
+    if (state.reflection) document.getElementById('reflection').value = state.reflection;
+    updateProgress();
+  </script>
+</body>
+</html>
