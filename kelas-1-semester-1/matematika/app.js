@@ -1,133 +1,155 @@
 const worlds = {
-  aku: {
-    name: 'Aku dan Diriku',
-    intro: 'Ayo tunjuk bagian tubuhmu!',
+  bilangan: {
+    name: 'Bilangan',
+    intro: 'Ayo kenali angka!',
     activities: [
       {
-        prompt: 'Ayo tunjuk hidung.',
-        instruction: 'Ayo tunjuk hidung.',
-        emoji: ['👂', '👃', '👁️'],
-        options: ['👂', '👃', '👁️'],
-        answer: '👃',
-        reward: 'Hebat! Kamu tahu hidung.'
+        prompt: 'Pilih angka yang benar.',
+        instruction: 'Ini angka lima.',
+        emoji: ['3', '5', '7'],
+        options: ['3', '5', '7'],
+        answer: '5',
+        reward: 'Hebat! Ini angka lima.'
       },
       {
-        prompt: 'Mana yang benar untuk mencuci tangan?',
-        instruction: 'Pilih kegiatan yang baik.',
-        emoji: ['🧼', '🧻', '🪥'],
-        options: ['🧻', '🧼', '🪥'],
-        answer: '🧼',
-        reward: 'Bagus! Mencuci tangan itu baik.'
+        prompt: 'Urutan angka mana yang benar?',
+        instruction: 'Pilih urutan dari kecil ke besar.',
+        emoji: ['1', '2', '3'],
+        options: ['3, 1, 2', '1, 2, 3', '2, 3, 1'],
+        answer: '1, 2, 3',
+        reward: 'Bagus! Urutannya benar.'
       }
     ]
   },
-  keluarga: {
-    name: 'Keluargaku',
-    intro: 'Ayo kenali keluarga!',
-    activities: [
-      {
-        prompt: 'Siapa yang membantu kita di rumah?',
-        instruction: 'Pilih orang yang paling dekat.',
-        emoji: ['👨', '👩', '🧒'],
-        options: ['👨', '👩', '🧒'],
-        answer: '👨',
-        reward: 'Benar! Ayah membantu keluarga.'
-      },
-      {
-        prompt: 'Kegiatan yang baik di rumah?',
-        instruction: 'Pilih perilaku baik.',
-        emoji: ['🧹', '📺', '🧸'],
-        options: ['🧹', '📺', '🧸'],
-        answer: '🧹',
-        reward: 'Hebat! Membersihkan rumah itu baik.'
-      }
-    ]
-  },
-  sekolah: {
-    name: 'Sekolahku',
-    intro: 'Ayo kenali alat sekolah!',
-    activities: [
-      {
-        prompt: 'Apa yang dipakai untuk menulis?',
-        instruction: 'Pilih benda sekolah yang benar.',
-        emoji: ['✏️', '🧢', '🚲'],
-        options: ['✏️', '🧢', '🚲'],
-        answer: '✏️',
-        reward: 'Benar! Pensil untuk menulis.'
-      },
-      {
-        prompt: 'Mana yang benar saat antre?',
-        instruction: 'Pilih sikap yang baik.',
-        emoji: ['🚶', '🧵', '🎒'],
-        options: ['🚶', '🧵', '🎒'],
-        answer: '🚶',
-        reward: 'Bagus! Antre itu baik.'
-      }
-    ]
-  },
-  huruf: {
-    name: 'Huruf Ceria',
-    intro: 'Ayo dengarkan hurufnya!',
-    activities: [
-      {
-        prompt: 'Huruf apa ini?',
-        instruction: 'Pilih huruf yang benar.',
-        emoji: ['A', 'B', 'C'],
-        options: ['A', 'B', 'C'],
-        answer: 'A',
-        reward: 'Hebat! A untuk apel.'
-      },
-      {
-        prompt: 'Buat suku kata dari B dan U?',
-        instruction: 'Cocokkan suku kata.',
-        emoji: ['B', 'U', 'BU'],
-        options: ['B', 'U', 'BU'],
-        answer: 'BU',
-        reward: 'Cocok! B dan U menjadi BU.'
-      }
-    ]
-  },
-  angka: {
-    name: 'Angka Ceria',
+  membilang: {
+    name: 'Membilang',
     intro: 'Ayo hitung benda!',
     activities: [
       {
-        prompt: 'Ada berapa apel?',
+        prompt: 'Kiko punya 4 apel. Ada berapa apel?',
         instruction: 'Hitung jumlah apel.',
-        emoji: ['🍎', '🍎', '🍎'],
-        options: ['2', '3', '4'],
-        answer: '3',
-        reward: 'Hebat! Ada tiga apel.'
+        emoji: ['🍎', '🍎', '🍎', '🍎'],
+        options: ['3', '4', '5'],
+        answer: '4',
+        reward: 'Benar! Ada empat apel.'
       },
       {
-        prompt: 'Mana angka 5?',
-        instruction: 'Pilih angka yang benar.',
-        emoji: ['3', '5', '8'],
-        options: ['3', '5', '8'],
-        answer: '5',
-        reward: 'Bagus! Kamu tahu angka 5.'
+        prompt: 'Berapa banyak bola ini?',
+        instruction: 'Hitung jumlah bola.',
+        emoji: ['⚽', '⚽', '⚽'],
+        options: ['2', '3', '4'],
+        answer: '3',
+        reward: 'Hebat! Ada tiga bola.'
       }
     ]
   },
-  warna: {
-    name: 'Warna dan Bentuk',
-    intro: 'Ayo cari warna merah!',
+  membandingkan: {
+    name: 'Membandingkan',
+    intro: 'Ayo bandingkan jumlah!',
     activities: [
       {
-        prompt: 'Mana yang berwarna merah?',
-        instruction: 'Cari warna merah.',
-        emoji: ['🔵', '🍎', '🟢'],
-        options: ['🔵', '🍎', '🟢'],
-        answer: '🍎',
-        reward: 'Benar! Merah seperti apel.'
+        prompt: 'Mana yang lebih banyak?',
+        instruction: 'Pilih kelompok yang lebih banyak.',
+        emoji: ['🍓', '🍓', '🍓', '🍓', '🍓', '🍓'],
+        options: ['Kiri', 'Kanan'],
+        answer: 'Kanan',
+        reward: 'Benar! Kelompok kanan lebih banyak.'
+      },
+      {
+        prompt: 'Mana yang sama banyak?',
+        instruction: 'Pilih kelompok sama banyak.',
+        emoji: ['🧁', '🧁', '🧁', '🧁'],
+        options: ['2 dan 3', '2 dan 2', '3 dan 4'],
+        answer: '2 dan 2',
+        reward: 'Hebat! Sama banyak.'
+      }
+    ]
+  },
+  operasi: {
+    name: 'Operasi Sederhana',
+    intro: 'Ayo tambah dan kurang!',
+    activities: [
+      {
+        prompt: '2 + 1 = ?',
+        instruction: 'Pilih hasil penjumlahan yang benar.',
+        emoji: ['🍏', '🍏', '🍏'],
+        options: ['2', '3', '4'],
+        answer: '3',
+        reward: 'Benar! 2 ditambah 1 sama dengan 3.'
+      },
+      {
+        prompt: '5 - 2 = ?',
+        instruction: 'Pilih hasil pengurangan yang benar.',
+        emoji: ['🪙', '🪙', '🪙', '🪙', '🪙'],
+        options: ['2', '3', '4'],
+        answer: '3',
+        reward: 'Hebat! 5 kurang 2 sama dengan 3.'
+      }
+    ]
+  },
+  bentuk: {
+    name: 'Bentuk',
+    intro: 'Ayo kenali bentuk!',
+    activities: [
+      {
+        prompt: 'Cari bentuk segitiga.',
+        instruction: 'Pilih bentuk yang benar.',
+        emoji: ['🔵', '🔺', '🟩'],
+        options: ['🔵', '🔺', '🟩'],
+        answer: '🔺',
+        reward: 'Benar! Ini segitiga.'
       },
       {
         prompt: 'Bentuk apa ini?',
-        instruction: 'Pilih bentuk lingkaran.',
-        emoji: ['🔺', '🟢', '⚪'],
-        options: ['🔺', '🟢', '⚪'],
+        instruction: 'Pilih lingkaran.',
+        emoji: ['⚪', '🔺', '⬜'],
+        options: ['⚪', '🔺', '⬜'],
         answer: '⚪',
-        reward: 'Hebat! Itu bentuk lingkaran.'
+        reward: 'Hebat! Ini lingkaran.'
+      }
+    ]
+  },
+  ukuran: {
+    name: 'Ukuran',
+    intro: 'Ayo cari benda yang lebih besar!',
+    activities: [
+      {
+        prompt: 'Mana yang lebih besar?',
+        instruction: 'Pilih benda yang lebih besar.',
+        emoji: ['🟦', '🟥'],
+        options: ['🟦', '🟥'],
+        answer: '🟥',
+        reward: 'Benar! Ini lebih besar.'
+      },
+      {
+        prompt: 'Mana yang lebih pendek?',
+        instruction: 'Pilih yang lebih pendek.',
+        emoji: ['📏', '📏'],
+        options: ['Panjang', 'Pendek'],
+        answer: 'Pendek',
+        reward: 'Bagus! Ini lebih pendek.'
+      }
+    ]
+  },
+  pola: {
+    name: 'Pola',
+    intro: 'Ayo lanjutkan pola!',
+    activities: [
+      {
+        prompt: 'Lanjutkan pola ini.',
+        instruction: 'Pilih pola yang benar.',
+        emoji: ['🔴', '🔵', '🔴', '🔵', '?'],
+        options: ['🔴', '🔵', '🟢'],
+        answer: '🔴',
+        reward: 'Hebat! Polanya berulang dengan benar.'
+      },
+      {
+        prompt: 'Pola mana yang benar?',
+        instruction: 'Pilih bentuk yang tepat.',
+        emoji: ['🔺', '🔺', '⬜', '⬜', '?'],
+        options: ['🔺', '⬜', '🔵'],
+        answer: '🔺',
+        reward: 'Benar! Polanya sama.'
       }
     ]
   }
@@ -135,9 +157,9 @@ const worlds = {
 
 const state = {
   stars: 0,
-  worldKey: 'aku',
+  worldKey: 'bilangan',
   activityIndex: 0,
-  unlocked: ['aku'],
+  unlocked: ['bilangan'],
   answered: false,
   currentView: 'home'
 };
@@ -172,8 +194,8 @@ const showHome = () => {
   state.currentView = 'home';
   homeScreen.classList.add('active');
   lessonScreen.classList.remove('active');
-  homeBubble.textContent = 'Halo! Ayo belajar sambil bermain!';
-  speak('Halo! Ayo belajar sambil bermain!');
+  homeBubble.textContent = 'Ayo bermain matematika!';
+  speak('Ayo bermain matematika!');
 };
 
 const getCurrentActivity = () => {
@@ -269,8 +291,8 @@ const repeatBtn = document.getElementById('repeatBtn');
 const nextBtn = document.getElementById('nextBtn');
 const homeBtn = document.getElementById('homeBtn');
 
-startBtn.addEventListener('click', () => showLesson('aku'));
-repeatIntroBtn.addEventListener('click', () => speak('Halo! Ayo belajar sambil bermain!'));
+startBtn.addEventListener('click', () => showLesson('bilangan'));
+repeatIntroBtn.addEventListener('click', () => speak('Ayo bermain matematika!'));
 repeatBtn.addEventListener('click', () => {
   const activity = getCurrentActivity();
   speak(activity.instruction);
