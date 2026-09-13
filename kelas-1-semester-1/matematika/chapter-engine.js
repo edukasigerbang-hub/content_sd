@@ -4,6 +4,7 @@
   const app = document.querySelector('#chapter-app');
   const starCount = document.querySelector('#starCount');
   let stars = Number(localStorage.getItem('grade1MathStars') || 0);
+  if (!Number.isFinite(stars) || stars < 0) stars = 0;
   let activeIndex = -1;
   let answered = false;
 
@@ -30,8 +31,8 @@
     const activity = sub.activity;
     app.innerHTML = `<section class="grade1-math-activity-head"><a class="grade1-math-back" href="bab${chapter.number}.html">← ${chapter.title}</a><span>BAB ${chapter.number} · SUBBAB ${index + 1}</span></section><section class="grade1-math-activity-card">${mascot('Ayo, kita coba!', 'curious')}<div class="activity-label">COBA</div>${visual(activity)}<h1>${activity.prompt}</h1><div class="answer-grid">${activity.choices.map((choice) => `<button class="answer-button" type="button" data-answer="${choice}">${choice}</button>`).join('')}</div><div class="feedback" id="feedback" role="status"></div><button class="listen-button" id="listen" type="button">🔊 Dengarkan lagi</button></section>`;
     document.querySelectorAll('.answer-button').forEach((button) => button.addEventListener('click', () => answer(button, activity)));
-    document.querySelector('#listen').addEventListener('click', () => speak(activity.prompt));
-    speak(activity.prompt);
+    document.querySelector('#listen').addEventListener('click', () => speak(activity.instruction || activity.prompt));
+    speak(activity.instruction || activity.prompt);
   };
   const answer = (button, activity) => {
     const feedback = document.querySelector('#feedback');
@@ -39,10 +40,18 @@
     if (String(button.dataset.answer) === String(activity.answer)) {
       answered = true;
       button.classList.add('is-correct');
-      feedback.innerHTML = `<strong>Hebat! Benar!</strong><span>⭐ +1 bintang</span><a class="next-button" href="bab${chapter.number}.html">Lanjut</a>`;
-      stars += 1;
-      localStorage.setItem('grade1MathStars', String(stars));
-      localStorage.setItem(`grade1MathDone:${chapter.id}:${activeIndex}`, 'true');
+      const doneKey = `grade1MathDone:${chapter.id}:${activeIndex}`;
+      const alreadyDone = localStorage.getItem(doneKey) === 'true';
+      const nextHref = activeIndex < chapter.subs.length - 1
+        ? `bab${chapter.number}.html?sub=${activeIndex + 2}`
+        : `bab${chapter.number}.html`;
+      const nextLabel = activeIndex < chapter.subs.length - 1 ? 'Subbab berikutnya' : 'Kembali ke BAB';
+      feedback.innerHTML = `<strong>Hebat! Benar!</strong><span>${alreadyDone ? '⭐ Tantangan sudah selesai' : '⭐ +1 bintang'}</span><a class="next-button" href="${nextHref}">${nextLabel}</a>`;
+      if (!alreadyDone) {
+        stars += 1;
+        localStorage.setItem('grade1MathStars', String(stars));
+        localStorage.setItem(doneKey, 'true');
+      }
       updateStars();
       speak('Hebat! Benar!');
     } else {
