@@ -3,11 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=kelas%201%20semester%201/ipas/index.html">
-  <title>IPAS Kelas 1 - Semester 1</title>
+  <title>Daftar Konten Pembelajaran</title>
+  <style>
+    :root { --blue: #1355a4; --text: #17365d; --muted: #55708f; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; font-family: "Trebuchet MS", Arial, sans-serif; color: var(--text); background: linear-gradient(180deg, #dff6ff, #fffdf4); }
+    main { width: min(1000px, calc(100% - 28px)); margin: auto; padding: 42px 0; }
+    .intro { padding: 28px; border-radius: 28px; background: linear-gradient(135deg, #82d7f6, #fff0bd); box-shadow: 0 12px 28px #6fa8c733; }
+    h1 { margin: 0 0 10px; color: var(--blue); font-size: clamp(2rem, 5vw, 3.5rem); }
+    .intro p { max-width: 680px; margin: 0; font-size: 1.1rem; line-height: 1.6; font-weight: 700; }
+    .content-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; }
+    .content-link { display: block; padding: 22px; border-radius: 22px; background: #fff; border: 1px solid #dbeaf5; box-shadow: 0 8px 20px #7189a52b; color: var(--text); transition: transform .2s, box-shadow .2s; }
+    .content-link:hover { transform: translateY(-4px); box-shadow: 0 12px 26px #7189a544; }
+    .content-link strong { display: block; font-size: 1.2rem; color: var(--blue); margin-bottom: 7px; }
+    .content-link span { color: var(--muted); line-height: 1.45; }
+    .home { background: #e7f4ff; }
+    footer { margin-top: 26px; color: var(--muted); font-weight: 700; text-align: center; }
+    @media (max-width: 600px) { .content-list { grid-template-columns: 1fr; } main { padding-top: 22px; } }
+  </style>
 </head>
 <body>
-  <p>Membuka Rumah Belajar IPAS Kelas 1...</p>
-  <p><a href="kelas%201%20semester%201/ipas/index.html">Buka halaman IPAS</a></p>
+  <main>
+    <section class="intro">
+      <h1>📚 Daftar Konten Pembelajaran</h1>
+      <p>Selamat datang di Rumah Belajar. Pilih materi IPAS Kelas 1 Semester 1 yang ingin dipelajari.</p>
+    </section>
+    <section class="content-list" aria-label="Navigasi konten">
+      <a class="content-link home" href="kelas%201%20semester%201/ipas/index.html"><strong>🏠 Beranda IPAS</strong><span>Buka halaman utama Rumah Belajar IPAS Kelas 1.</span></a>
+      <a class="content-link" href="kelas%201%20semester%201/ipas/bab1.html"><strong>🌟 Bab 1: Tubuhku Hebat</strong><span>Mengenal bagian tubuh, pancaindra, dan kebiasaan hidup sehat.</span></a>
+      <a class="content-link" href="kelas%201%20semester%201/ipas/bab2.html"><strong>🏠 Bab 2: Aku dan Lingkunganku</strong><span>Mengenal lingkungan serta benda hidup dan benda tak hidup.</span></a>
+      <a class="content-link" href="kelas%201%20semester%201/ipas/bab3.html"><strong>🌿 Bab 3: Tumbuhan di Sekitarku</strong><span>Mengenal bagian tumbuhan dan cara merawatnya.</span></a>
+      <a class="content-link" href="kelas%201%20semester%201/ipas/bab4.html"><strong>🐾 Bab 4: Hewan di Sekitarku</strong><span>Mengenal hewan, tempat tinggal, dan cara menyayanginya.</span></a>
+    </section>
+    <footer>✨ Selamat belajar, anak hebat! ✨</footer>
+  </main>
 </body>
 </html>
