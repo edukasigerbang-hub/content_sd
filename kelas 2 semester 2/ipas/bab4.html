@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Bab 4 - Menjaga Alam
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="ipas-app">
+   <main class="embedded-content">
+    <div class="module-controls">
+     <a class="module-button" href="index.html" aria-label="Kembali ke Peta">
+      <img src="images/btn-peta.png" alt="Peta"/>
+     </a>
+     <div class="module-title">
+      <strong>
+       🌟 BAB 4
+      </strong>
+      <span>
+       Menjaga Alam
+      </span>
+     </div>
+     <div class="module-stars">
+      ⭐
+      <span id="starCount">
+       0
+      </span>
+      /5
+     </div>
+    </div>
+
+    <section class="screen active" data-screen="0">
+     <div class="screen-inner">
+      <div class="module-character">
+       🌱
+      </div>
+      <h1 class="screen-title">
+       MENJAGA ALAM
+      </h1>
+      <p class="screen-subtitle">
+       Alam adalah rumah bagi makhluk hidup. Kita harus merawatnya agar tetap sehat dan indah.
+      </p>
+      <button class="module-action" data-go="1">
+       Mulai 🚀
+      </button>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="1">
+     <div class="screen-inner">
+      <h2 class="screen-title">
+       Kenali cara menjaga alam
+      </h2>
+      <p class="screen-subtitle">
+       Klik setiap tindakan untuk melihat manfaatnya.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card" data-part="Menanam pohon" data-info="Menanam pohon membuat udara lebih segar dan tempat hidup hewan lebih banyak.">
+        <span class="visual-icon">🌳</span>
+        Menanam Pohon
+       </button>
+       <button class="visual-card" data-part="Membuang sampah pada tempatnya" data-info="Membuang sampah benar menjaga lingkungan tetap bersih dan sehat.">
+        <span class="visual-icon">🗑️</span>
+        Sampah pada Tempatnya
+       </button>
+       <button class="visual-card" data-part="Hemat air" data-info="Hemat air menjaga sumber air tetap tersedia untuk semua makhluk hidup.">
+        <span class="visual-icon">💧</span>
+        Hemat Air
+       </button>
+       <button class="visual-card" data-part="Membersihkan lingkungan" data-info="Membersihkan lingkungan membuat rumah, sekolah, dan taman lebih nyaman.">
+        <span class="visual-icon">🧹</span>
+        Membersihkan Lingkungan
+       </button>
+       <button class="visual-card" data-part="Melindungi hewan" data-info="Melindungi hewan menjaga keseimbangan ekosistem.">
+        <span class="visual-icon">🐾</span>
+        Melindungi Hewan
+       </button>
+       <button class="visual-card" data-part="Menjaga tumbuhan" data-info="Merawat tumbuhan membuat lingkungan lebih hijau dan indah.">
+        <span class="visual-icon">🌼</span>
+        Menjaga Tumbuhan
+       </button>
+      </div>
+      <div class="info-box" id="bodyInfo">
+       Pilih satu cara menjaga alam.
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+     <div class="screen-inner">
+      <div class="module-character">
+       🔎
+      </div>
+      <h2 class="screen-title">
+       Ayo Mengamati
+      </h2>
+      <p class="screen-subtitle">
+       Pilih 3 aktivitas yang menunjukkan kepedulian terhadap alam.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card observe" data-observe="menanam pohon">
+        <span class="visual-icon">🌳</span>
+        Menanam Pohon
+       </button>
+       <button class="visual-card observe" data-observe="menghemat air">
+        <span class="visual-icon">💧</span>
+        Menghemat Air
+       </button>
+       <button class="visual-card observe" data-observe="membersihkan sekolah">
+        <span class="visual-icon">🧹</span>
+        Membersihkan Sekolah
+       </button>
+       <button class="visual-card observe" data-observe="membuang sampah sembarangan">
+        <span class="visual-icon">❌</span>
+        Membuang Sembarangan
+       </button>
+       <button class="visual-card observe" data-observe="merawat tanaman">
+        <span class="visual-icon">🌱</span>
+        Merawat Tanaman
+       </button>
+       <button class="visual-card observe" data-observe="membakar sampah">
+        <span class="visual-icon">🔥</span>
+        Membakar Sampah
+       </button>
+      </div>
+      <div class="feedback" id="observeFeedback">
+       Terpilih: 0 / 3 ⭐
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧩
+      </div>
+      <h2 class="screen-title">
+       Pasangkan tindakan dan manfaat
+      </h2>
+      <p class="screen-subtitle">
+       Klik pasangan yang cocok.
+      </p>
+      <div class="match-grid">
+       <button class="match-card" data-match="menanam">
+        🌳 Menanam Pohon
+       </button>
+       <button class="match-card" data-match="menanam">
+        Udara lebih segar
+       </button>
+       <button class="match-card" data-match="sampah">
+        🗑️ Membuang Sampah Tepat
+       </button>
+       <button class="match-card" data-match="sampah">
+        Lingkungan bersih
+       </button>
+       <button class="match-card" data-match="air">
+        💧 Hemat Air
+       </button>
+       <button class="match-card" data-match="air">
+        Air tetap tersedia
+       </button>
+       <button class="match-card" data-match="tumbuhan">
+        🌼 Menjaga Tumbuhan
+       </button>
+       <button class="match-card" data-match="tumbuhan">
+        Alam tetap indah
+       </button>
+      </div>
+      <div class="feedback" id="matchFeedback">
+       Pasangan benar: 0 / 4
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎯
+      </div>
+      <div class="screen-subtitle">
+       KUIS
+      </div>
+      <div class="quiz-visual">
+       🌳
+      </div>
+      <h2 class="screen-title">
+       Tindakan yang paling baik untuk menjaga alam adalah...
+      </h2>
+      <div class="quiz-grid">
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🔥
+        <br/>
+        Membakar sampah
+       </button>
+       <button class="quiz-option" data-answer="true" data-feedback="quizFeedback">
+        🌳
+        <br/>
+        Menanam pohon
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        ❌
+        <br/>
+        Membuang sampah sembarangan
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🚱
+        <br/>
+        Meninggalkan air menggenang
+       </button>
+      </div>
+      <div class="feedback" id="quizFeedback">
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧠
+      </div>
+      <h2 class="screen-title">
+       Tantangan kecil
+      </h2>
+      <p class="screen-subtitle">
+       Coba pilih satu tindakan sederhana yang bisa kamu lakukan hari ini untuk menjaga alam.
+      </p>
+      <div class="choice-grid">
+       <button class="module-action" data-go="6">
+        Lanjutkan
+       </button>
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎉
+      </div>
+      <h2 class="screen-title">
+       HEBAT!
+      </h2>
+      <p class="screen-subtitle">
+       Kamu sudah belajar bahwa menjaga alam adalah tugas kita semua.
+      </p>
+      <div class="reward-stars" id="rewardStars">
+       ☆☆☆☆☆
+      </div>
+      <div class="choice-grid">
+       <button class="module-action" data-go="0">
+        Ulangi
+       </button>
+       <a class="module-next" href="index.html">
+        Kembali ke Peta
+       </a>
+      </div>
+     </div>
+    </section>
+
+    <nav class="module-navigation">
+     <button class="btn-general" id="previousButton">← Kembali</button>
+     <div>
+      <div class="progress-dots" id="dots"></div>
+      <div class="screen-count" id="screenCount">Screen 1 dari 7</div>
+     </div>
+     <button class="btn-general next" id="nextButton">Berikutnya →</button>
+    </nav>
+   </main>
+   <div class="portrait-message">
+    📱↔️
+    <br/>
+    Putar perangkatmu ke landscape.
+   </div>
+  </div>
+  <script src="sound-manager.js"></script>
+  <script src="bab4-script.js"></script>
+ </body>
+</html>

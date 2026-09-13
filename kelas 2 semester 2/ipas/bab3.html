@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Bab 3 - Hewan dan Peranannya
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="ipas-app">
+   <main class="embedded-content">
+    <div class="module-controls">
+     <a class="module-button" href="index.html" aria-label="Kembali ke Peta">
+      <img src="images/btn-peta.png" alt="Peta"/>
+     </a>
+     <div class="module-title">
+      <strong>
+       🌟 BAB 3
+      </strong>
+      <span>
+       Hewan dan Peranannya
+      </span>
+     </div>
+     <div class="module-stars">
+      ⭐
+      <span id="starCount">
+       0
+      </span>
+      /5
+     </div>
+    </div>
+
+    <section class="screen active" data-screen="0">
+     <div class="screen-inner">
+      <div class="module-character">
+       🐝
+      </div>
+      <h1 class="screen-title">
+       HEWAN DAN PERANANNYA
+      </h1>
+      <p class="screen-subtitle">
+       Hewan hidup di sekitar kita dan memiliki peran penting dalam menjaga keseimbangan alam.
+      </p>
+      <button class="module-action" data-go="1">
+       Mulai 🚀
+      </button>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="1">
+     <div class="screen-inner">
+      <h2 class="screen-title">
+       Kenali hewan dan peranannya
+      </h2>
+      <p class="screen-subtitle">
+       Klik setiap hewan untuk melihat peran pentingnya.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card" data-part="Lebah" data-info="Lebah membantu penyerbukan bunga sehingga tumbuhan bisa berkembang.">
+        <span class="visual-icon">🐝</span>
+        Lebah
+       </button>
+       <button class="visual-card" data-part="Burung" data-info="Burung membantu menyebarkan biji tanaman ke tempat lain.">
+        <span class="visual-icon">🐦</span>
+        Burung
+       </button>
+       <button class="visual-card" data-part="Ayam" data-info="Ayam memberi telur dan daging yang bermanfaat bagi manusia.">
+        <span class="visual-icon">🐔</span>
+        Ayam
+       </button>
+       <button class="visual-card" data-part="Sapi" data-info="Sapi memberi susu dan membantu mengolah lahan pertanian.">
+        <span class="visual-icon">🐄</span>
+        Sapi
+       </button>
+       <button class="visual-card" data-part="Ikan" data-info="Ikan membantu menjaga keseimbangan ekosistem air.">
+        <span class="visual-icon">🐟</span>
+        Ikan
+       </button>
+       <button class="visual-card" data-part="Kupu-kupu" data-info="Kupu-kupu juga membantu penyerbukan bunga di sekitar kita.">
+        <span class="visual-icon">🦋</span>
+        Kupu-kupu
+       </button>
+      </div>
+      <div class="info-box" id="bodyInfo">
+       Pilih satu hewan.
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+     <div class="screen-inner">
+      <div class="module-character">
+       🔎
+      </div>
+      <h2 class="screen-title">
+       Ayo Mengamati
+      </h2>
+      <p class="screen-subtitle">
+       Pilih 3 hewan yang membantu penyerbukan atau keseimbangan alam.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card observe" data-observe="lebah">
+        <span class="visual-icon">🐝</span>
+        Lebah
+       </button>
+       <button class="visual-card observe" data-observe="kupu">
+        <span class="visual-icon">🦋</span>
+        Kupu-kupu
+       </button>
+       <button class="visual-card observe" data-observe="burung">
+        <span class="visual-icon">🐦</span>
+        Burung
+       </button>
+       <button class="visual-card observe" data-observe="sapi">
+        <span class="visual-icon">🐄</span>
+        Sapi
+       </button>
+       <button class="visual-card observe" data-observe="ayam">
+        <span class="visual-icon">🐔</span>
+        Ayam
+       </button>
+       <button class="visual-card observe" data-observe="ikan">
+        <span class="visual-icon">🐟</span>
+        Ikan
+       </button>
+      </div>
+      <div class="feedback" id="observeFeedback">
+       Terpilih: 0 / 3 ⭐
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧩
+      </div>
+      <h2 class="screen-title">
+       Pasangkan hewan dan perannya
+      </h2>
+      <p class="screen-subtitle">
+       Klik pasangan yang cocok.
+      </p>
+      <div class="match-grid">
+       <button class="match-card" data-match="lebah">
+        🐝 Lebah
+       </button>
+       <button class="match-card" data-match="lebah">
+        Penyerbuk bunga
+       </button>
+       <button class="match-card" data-match="burung">
+        🐦 Burung
+       </button>
+       <button class="match-card" data-match="burung">
+        Menyebarkan biji
+       </button>
+       <button class="match-card" data-match="sapi">
+        🐄 Sapi
+       </button>
+       <button class="match-card" data-match="sapi">
+        Memberi susu
+       </button>
+       <button class="match-card" data-match="ayam">
+        🐔 Ayam
+       </button>
+       <button class="match-card" data-match="ayam">
+        Memberi telur
+       </button>
+      </div>
+      <div class="feedback" id="matchFeedback">
+       Pasangan benar: 0 / 4
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎯
+      </div>
+      <div class="screen-subtitle">
+       KUIS
+      </div>
+      <div class="quiz-visual">
+       🐝
+      </div>
+      <h2 class="screen-title">
+       Hewan yang membantu penyerbukan bunga adalah...
+      </h2>
+      <div class="quiz-grid">
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🐟
+        <br/>
+        Ikan
+       </button>
+       <button class="quiz-option" data-answer="true" data-feedback="quizFeedback">
+        🐝
+        <br/>
+        Lebah
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🐄
+        <br/>
+        Sapi
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🐔
+        <br/>
+        Ayam
+       </button>
+      </div>
+      <div class="feedback" id="quizFeedback">
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧠
+      </div>
+      <h2 class="screen-title">
+       Tantangan kecil
+      </h2>
+      <p class="screen-subtitle">
+       Pilih satu hewan yang ada di sekitarmu dan sebutkan manfaatnya bagi manusia atau lingkungan.
+      </p>
+      <div class="choice-grid">
+       <button class="module-action" data-go="6">
+        Lanjutkan
+       </button>
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎉
+      </div>
+      <h2 class="screen-title">
+       HEBAT!
+      </h2>
+      <p class="screen-subtitle">
+       Kamu sudah belajar bahwa hewan memiliki peran penting bagi alam dan manusia.
+      </p>
+      <div class="reward-stars" id="rewardStars">
+       ☆☆☆☆☆
+      </div>
+      <div class="choice-grid">
+       <button class="module-action" data-go="0">
+        Ulangi
+       </button>
+       <a class="module-next" href="index.html">
+        Kembali ke Peta
+       </a>
+      </div>
+     </div>
+    </section>
+
+    <nav class="module-navigation">
+     <button class="btn-general" id="previousButton">← Kembali</button>
+     <div>
+      <div class="progress-dots" id="dots"></div>
+      <div class="screen-count" id="screenCount">Screen 1 dari 7</div>
+     </div>
+     <button class="btn-general next" id="nextButton">Berikutnya →</button>
+    </nav>
+   </main>
+   <div class="portrait-message">
+    📱↔️
+    <br/>
+    Putar perangkatmu ke landscape.
+   </div>
+  </div>
+  <script src="sound-manager.js"></script>
+  <script src="bab3-script.js"></script>
+ </body>
+</html>

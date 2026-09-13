@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Bab 3 - Tumbuhan di Sekitar
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="ipas-app">
+   <main class="embedded-content">
+    <div class="module-controls">
+     <a class="module-button" href="index.html" aria-label="Kembali ke Peta">
+      <img src="images/btn-peta.png" alt="Peta"/>
+     </a>
+     <div class="module-title">
+      <strong>
+       🌟 BAB 3
+      </strong>
+      <span>
+       Tumbuhan di Sekitar
+      </span>
+     </div>
+     <div class="module-stars">
+      ⭐
+      <span id="starCount">
+       0
+      </span>
+      /5
+     </div>
+    </div>
+
+    <section class="screen active" data-screen="0">
+     <div class="screen-inner">
+      <div class="module-character">
+       🌿
+      </div>
+      <h1 class="screen-title">
+       TUMBUHAN DI SEKITAR
+      </h1>
+      <p class="screen-subtitle">
+       Tumbuhan hidup karena mendapat air, cahaya, dan ruang yang cukup. Mari kita belajar bagian-bagiannya.
+      </p>
+      <button class="module-action" data-go="1">
+       Mulai 🚀
+      </button>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="1">
+     <div class="screen-inner">
+      <h2 class="screen-title">
+       Kenali bagian tumbuhan
+      </h2>
+      <p class="screen-subtitle">
+       Klik bagian tumbuhan untuk melihat fungsinya.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card" data-part="Akar" data-info="Akar menyerap air dan zat hara dari tanah.">
+        <span class="visual-icon">🌱</span>
+        Akar
+       </button>
+       <button class="visual-card" data-part="Batang" data-info="Batang menyangga tumbuhan dan menyalurkan air serta makanan.">
+        <span class="visual-icon">🌾</span>
+        Batang
+       </button>
+       <button class="visual-card" data-part="Daun" data-info="Daun membuat makanan bagi tumbuhan dengan bantuan cahaya matahari.">
+        <span class="visual-icon">🍃</span>
+        Daun
+       </button>
+       <button class="visual-card" data-part="Bunga" data-info="Bunga bisa menjadi alat perkembangbiakan tumbuhan.">
+        <span class="visual-icon">🌼</span>
+        Bunga
+       </button>
+       <button class="visual-card" data-part="Buah" data-info="Buah bisa membantu tumbuhan menyebarkan biji dan menjadi makanan hewan.">
+        <span class="visual-icon">🍎</span>
+        Buah
+       </button>
+       <button class="visual-card" data-part="Biji" data-info="Biji adalah calon tumbuhan baru.">
+        <span class="visual-icon">🌰</span>
+        Biji
+       </button>
+      </div>
+      <div class="info-box" id="bodyInfo">
+       Pilih satu bagian tumbuhan.
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+     <div class="screen-inner">
+      <div class="module-character">
+       🔎
+      </div>
+      <h2 class="screen-title">
+       Ayo Mengamati
+      </h2>
+      <p class="screen-subtitle">
+       Pilih 3 bagian tumbuhan yang membantu tumbuhan menyerap air atau membuat makanan.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card observe" data-observe="akar">
+        <span class="visual-icon">🌱</span>
+        Akar
+       </button>
+       <button class="visual-card observe" data-observe="daun">
+        <span class="visual-icon">🍃</span>
+        Daun
+       </button>
+       <button class="visual-card observe" data-observe="batang">
+        <span class="visual-icon">🌾</span>
+        Batang
+       </button>
+       <button class="visual-card observe" data-observe="bunga">
+        <span class="visual-icon">🌼</span>
+        Bunga
+       </button>
+       <button class="visual-card observe" data-observe="rumput">
+        <span class="visual-icon">🪴</span>
+        Rumput
+       </button>
+       <button class="visual-card observe" data-observe="buah">
+        <span class="visual-icon">🍎</span>
+        Buah
+       </button>
+      </div>
+      <div class="feedback" id="observeFeedback">
+       Terpilih: 0 / 3 ⭐
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧩
+      </div>
+      <h2 class="screen-title">
+       Pasangkan tumbuhan dan fungsi
+      </h2>
+      <p class="screen-subtitle">
+       Pilih pasangan yang cocok.
+      </p>
+      <div class="match-grid">
+       <button class="match-card" data-match="akar">
+        🌱 Akar
+       </button>
+       <button class="match-card" data-match="akar">
+        Menyerap air
+       </button>
+       <button class="match-card" data-match="daun">
+        🍃 Daun
+       </button>
+       <button class="match-card" data-match="daun">
+        Membuat makanan
+       </button>
+       <button class="match-card" data-match="batang">
+        🌾 Batang
+       </button>
+       <button class="match-card" data-match="batang">
+        Menyangga tumbuhan
+       </button>
+       <button class="match-card" data-match="bunga">
+        🌼 Bunga
+       </button>
+       <button class="match-card" data-match="bunga">
+        Alat perkembangbiakan
+       </button>
+      </div>
+      <div class="feedback" id="matchFeedback">
+       Pasangan benar: 0 / 4
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎯
+      </div>
+      <div class="screen-subtitle">
+       KUIS
+      </div>
+      <div class="quiz-visual">
+       🌱
+      </div>
+      <h2 class="screen-title">
+       Bagian tumbuhan yang menyerap air adalah...
+      </h2>
+      <div class="quiz-grid">
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🍃
+        <br/>
+        Daun
+       </button>
+       <button class="quiz-option" data-answer="true" data-feedback="quizFeedback">
+        🌱
+        <br/>
+        Akar
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🌼
+        <br/>
+        Bunga
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🌾
+        <br/>
+        Batang
+       </button>
+      </div>
+      <div class="feedback" id="quizFeedback">
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧠
+      </div>
+      <h2 class="screen-title">
+       Tantangan kecil
+      </h2>
+      <p class="screen-subtitle">
+       Amati tanaman di rumahmu. Sebutkan bagian tanaman yang paling sering kamu lihat dan fungsinya.
+      </p>
+      <div class="choice-grid">
+       <button class="module-action" data-go="6">
+        Lanjutkan
+       </button>
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎉
+      </div>
+      <h2 class="screen-title">
+       HEBAT!
+      </h2>
+      <p class="screen-subtitle">
+       Kamu sudah belajar bagian-bagian tumbuhan dan fungsinya.
+      </p>
+      <div class="reward-stars" id="rewardStars">
+       ☆☆☆☆☆
+      </div>
+      <div class="choice-grid">
+       <button class="module-action" data-go="0">
+        Ulangi
+       </button>
+       <a class="module-next" href="index.html">
+        Kembali ke Peta
+       </a>
+      </div>
+     </div>
+    </section>
+
+    <nav class="module-navigation">
+     <button class="btn-general" id="previousButton">← Kembali</button>
+     <div>
+      <div class="progress-dots" id="dots"></div>
+      <div class="screen-count" id="screenCount">Screen 1 dari 7</div>
+     </div>
+     <button class="btn-general next" id="nextButton">Berikutnya →</button>
+    </nav>
+   </main>
+   <div class="portrait-message">
+    📱↔️
+    <br/>
+    Putar perangkatmu ke landscape.
+   </div>
+  </div>
+  <script src="sound-manager.js"></script>
+  <script src="bab3-script.js"></script>
+ </body>
+</html>

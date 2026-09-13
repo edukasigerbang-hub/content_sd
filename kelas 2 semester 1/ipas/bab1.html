@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Bab 1 - Makhluk Hidup
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="ipas-app">
+   <main class="embedded-content">
+    <div class="module-controls">
+     <a class="module-button" href="index.html" aria-label="Kembali ke Peta">
+      <img src="images/btn-peta.png" alt="Peta"/>
+     </a>
+     <div class="module-title">
+      <strong>
+       🌟 BAB 1
+      </strong>
+      <span>
+       Makhluk Hidup
+      </span>
+     </div>
+     <div class="module-stars">
+      ⭐
+      <span id="starCount">
+       0
+      </span>
+      /5
+     </div>
+    </div>
+
+    <section class="screen active" data-screen="0">
+     <div class="screen-inner">
+      <div class="module-character">
+       🌱
+      </div>
+      <h1 class="screen-title">
+       MAKHLUK HIDUP
+      </h1>
+      <p class="screen-subtitle">
+       Hari ini kita akan belajar apa saja yang dibutuhkan makhluk hidup agar tetap sehat dan bisa tumbuh.
+      </p>
+      <button class="module-action" data-go="1">
+       Mulai 🚀
+      </button>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="1">
+     <div class="screen-inner">
+      <h2 class="screen-title">
+       Kenali kebutuhan makhluk hidup
+      </h2>
+      <p class="screen-subtitle">
+       Klik setiap kartu untuk mengetahui kegunaannya.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card" data-part="Air" data-info="Air dibutuhkan untuk minum, bernapas, dan menjaga tubuh tetap hidup.">
+        <span class="visual-icon">💧</span>
+        Air
+       </button>
+       <button class="visual-card" data-part="Makanan" data-info="Makanan memberi energi agar tumbuh dan bergerak.">
+        <span class="visual-icon">🥗</span>
+        Makanan
+       </button>
+       <button class="visual-card" data-part="Udara" data-info="Udara membantu makhluk hidup bernapas.">
+        <span class="visual-icon">🌬️</span>
+        Udara
+       </button>
+       <button class="visual-card" data-part="Tempat tinggal" data-info="Tempat tinggal memberi perlindungan dan kenyamanan.">
+        <span class="visual-icon">🏡</span>
+        Tempat tinggal
+       </button>
+       <button class="visual-card" data-part="Cahaya" data-info="Cahaya matahari membantu tumbuhan membuat makanan.">
+        <span class="visual-icon">☀️</span>
+        Cahaya
+       </button>
+       <button class="visual-card" data-part="Ruangan bergerak" data-info="Makhluk hidup juga butuh ruang agar bisa bergerak dan berkembang.">
+        <span class="visual-icon">🦶</span>
+        Ruang Bergerak
+       </button>
+      </div>
+      <div class="info-box" id="bodyInfo">
+       Pilih satu kebutuhan makhluk hidup.
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="2">
+     <div class="screen-inner">
+      <div class="module-character">
+       🔎
+      </div>
+      <h2 class="screen-title">
+       Ayo Mengamati
+      </h2>
+      <p class="screen-subtitle">
+       Pilih 3 hal penting yang dibutuhkan oleh makhluk hidup.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card observe" data-observe="air">
+        <span class="visual-icon">💧</span>
+        Air
+       </button>
+       <button class="visual-card observe" data-observe="makanan">
+        <span class="visual-icon">🥗</span>
+        Makanan
+       </button>
+       <button class="visual-card observe" data-observe="udara">
+        <span class="visual-icon">🌬️</span>
+        Udara
+       </button>
+       <button class="visual-card observe" data-observe="tempat tinggal">
+        <span class="visual-icon">🏡</span>
+        Tempat Tinggal
+       </button>
+       <button class="visual-card observe" data-observe="cahaya">
+        <span class="visual-icon">☀️</span>
+        Cahaya Matahari
+       </button>
+       <button class="visual-card observe" data-observe="sepatu">
+        <span class="visual-icon">👟</span>
+        Sepatu
+       </button>
+      </div>
+      <div class="feedback" id="observeFeedback">
+       Terpilih: 0 / 3 ⭐
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧩
+      </div>
+      <h2 class="screen-title">
+       Pasangkan makhluk hidup dan kebutuhannya
+      </h2>
+      <p class="screen-subtitle">
+       Klik pasangan yang sesuai.
+      </p>
+      <div class="match-grid">
+       <button class="match-card" data-match="tumbuhan">
+        🌱 Tumbuhan
+       </button>
+       <button class="match-card" data-match="tumbuhan">
+        Air
+       </button>
+       <button class="match-card" data-match="hewan">
+        🐶 Hewan
+       </button>
+       <button class="match-card" data-match="hewan">
+        Makanan
+       </button>
+       <button class="match-card" data-match="manusia">
+        👨 Manusia
+       </button>
+       <button class="match-card" data-match="manusia">
+        Tempat tinggal
+       </button>
+       <button class="match-card" data-match="tumbuhan">
+        Cahaya matahari
+       </button>
+       <button class="match-card" data-match="hewan">
+        Udara
+       </button>
+      </div>
+      <div class="feedback" id="matchFeedback">
+       Pasangan benar: 0 / 4
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎯
+      </div>
+      <div class="screen-subtitle">
+       KUIS
+      </div>
+      <div class="quiz-visual">
+       🌬️
+      </div>
+      <h2 class="screen-title">
+       Apa yang membantu makhluk hidup bernapas?
+      </h2>
+      <div class="quiz-grid">
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🍉
+        <br/>
+        Buah
+       </button>
+       <button class="quiz-option" data-answer="true" data-feedback="quizFeedback">
+        🌬️
+        <br/>
+        Udara
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        🏠
+        <br/>
+        Rumah
+       </button>
+       <button class="quiz-option" data-answer="false" data-feedback="quizFeedback">
+        ☁️
+        <br/>
+        Awan
+       </button>
+      </div>
+      <div class="feedback" id="quizFeedback">
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧠
+      </div>
+      <h2 class="screen-title">
+       Tantangan kecil
+      </h2>
+      <p class="screen-subtitle">
+       Coba sebutkan 2 kebutuhan makhluk hidup yang ada di rumahmu. Mintalah bantuan orang dewasa jika perlu.
+      </p>
+      <div class="choice-grid">
+       <button class="module-action" data-go="6">
+        Lanjutkan
+       </button>
+      </div>
+     </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎉
+      </div>
+      <h2 class="screen-title">
+       HEBAT!
+      </h2>
+      <p class="screen-subtitle">
+       Kamu sudah mengenal kebutuhan makhluk hidup.
+      </p>
+      <div class="reward-stars" id="rewardStars">
+       ☆☆☆☆☆
+      </div>
+      <div class="choice-grid">
+       <button class="module-action" data-go="0">
+        Ulangi
+       </button>
+       <a class="module-next" href="index.html">
+        Kembali ke Peta
+       </a>
+      </div>
+     </div>
+    </section>
+
+    <nav class="module-navigation">
+     <button class="btn-general" id="previousButton">← Kembali</button>
+     <div>
+      <div class="progress-dots" id="dots"></div>
+      <div class="screen-count" id="screenCount">Screen 1 dari 7</div>
+     </div>
+     <button class="btn-general next" id="nextButton">Berikutnya →</button>
+    </nav>
+   </main>
+   <div class="portrait-message">
+    📱↔️
+    <br/>
+    Putar perangkatmu ke landscape.
+   </div>
+  </div>
+  <script src="sound-manager.js"></script>
+  <script src="bab1-script.js"></script>
+ </body>
+</html>
