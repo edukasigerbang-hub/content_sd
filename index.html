@@ -3,11 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=kelas%201%20semester%201/ipas/index.html">
-  <title>IPAS Kelas 1 - Semester 1</title>
+  <title>Rumah Belajar - Daftar Pelajaran</title>
+  <style>
+    :root { --blue: #1355a4; --text: #17365d; --muted: #55708f; --line: #dbeaf5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; font-family: "Trebuchet MS", Arial, sans-serif; color: var(--text); background: linear-gradient(180deg, #dff6ff, #fffdf4); }
+    main { width: min(1100px, calc(100% - 28px)); margin: auto; padding: 36px 0 48px; }
+    .hero { padding: 32px; border-radius: 28px; background: linear-gradient(135deg, #82d7f6, #fff0bd); box-shadow: 0 12px 28px #6fa8c733; }
+    h1 { margin: 0 0 10px; color: var(--blue); font-size: clamp(2rem, 5vw, 3.6rem); }
+    .hero p { max-width: 700px; margin: 0; font-size: 1.1rem; line-height: 1.6; font-weight: 700; }
+    h2 { margin: 28px 0 14px; color: var(--blue); }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card { display: block; padding: 22px; border-radius: 22px; background: #fff; border: 1px solid var(--line); box-shadow: 0 8px 20px #7189a52b; color: var(--text); transition: transform .2s, box-shadow .2s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px #7189a544; }
+    .card strong { display: block; margin-bottom: 7px; color: var(--blue); font-size: 1.2rem; }
+    .card span { color: var(--muted); line-height: 1.45; }
+    .ipas { background: #e7f4ff; }
+    footer { margin-top: 26px; color: var(--muted); font-weight: 700; text-align: center; }
+    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } main { padding-top: 22px; } }
+  </style>
 </head>
 <body>
-  <p>Membuka Rumah Belajar IPAS Kelas 1...</p>
-  <p><a href="kelas%201%20semester%201/ipas/index.html">Buka halaman IPAS</a></p>
+  <main>
+    <section class="hero">
+      <h1>📚 Rumah Belajar</h1>
+      <p>Pilih kelas, semester, dan pelajaran yang ingin dipelajari.</p>
+    </section>
+
+    <h2>Kelas 1 · Semester 1</h2>
+    <section class="grid" aria-label="Daftar pelajaran Kelas 1 Semester 1">
+      <a class="card ipas" href="kelas%201%20semester%201/ipas/index.html"><strong>🌱 IPAS</strong><span>Mengenal diri, lingkungan, tumbuhan, dan hewan melalui empat bab pembelajaran.</span></a>
+      <a class="card" href="#"><strong>📖 Bahasa Indonesia</strong><span>Konten pelajaran akan ditambahkan di foldernya.</span></a>
+      <a class="card" href="#"><strong>🔢 Matematika</strong><span>Konten pelajaran akan ditambahkan di foldernya.</span></a>
+      <a class="card" href="#"><strong>🎨 Seni Budaya</strong><span>Konten pelajaran akan ditambahkan di foldernya.</span></a>
+    </section>
+    <footer>✨ Pilih pelajaran untuk mulai belajar ✨</footer>
+  </main>
 </body>
 </html>
