@@ -1,5 +1,6 @@
 (function () {
   const key = "IPAS",
+    sound = window.IPASSoundManager || { play: function () {} },
     all = JSON.parse(localStorage.getItem(key) || "{}"),
     state = all.bab4 || { stars: 0, steps: [] };
   let current = 0;
@@ -13,6 +14,12 @@
       if (!state.steps.includes(s)) {
         state.steps.push(s);
         state.stars = Math.min(5, state.stars + 1);
+        sound.play("star-earned");
+        if (state.stars >= 5) {
+          sound.play("level-complete");
+        } else {
+          sound.play("activity-complete");
+        }
         save();
       }
       render();
@@ -81,6 +88,7 @@
         const ok = b.dataset.ok === "true";
         b.classList.toggle("selected", ok);
         const id = b.classList.contains("pet") ? "petFeedback" : "careFeedback";
+        sound.play(ok ? "correct" : "wrong");
         feedback(
           id,
           ok ? "🎉 Pilihan yang baik!" : "😊 Pilih tindakan lembut.",
@@ -94,6 +102,7 @@
       (b.onclick = () => {
         const ok = b.dataset.answer === "true";
         b.classList.add(ok ? "correct" : "wrong");
+        sound.play(ok ? "correct" : "wrong");
         feedback(
           "quizFeedback",
           ok ? "🎉 Benar! Kita harus merawat hewan." : "😊 Coba lagi.",
