@@ -1,0 +1,79 @@
+#ipas-app .class3-card-grid,
+#ipas-app .class3-options,
+#ipas-app .class3-reflections {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: min(980px, 100%);
+}
+#ipas-app .class3-card,
+#ipas-app .class3-option,
+#ipas-app .class3-reflections button {
+  min-height: 52px;
+  padding: 10px 14px;
+  border: 3px solid transparent;
+  border-radius: 16px;
+  background: #fff;
+  color: #17365d;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #4d8cb51e;
+}
+#ipas-app .class3-card {
+  min-height: 98px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+#ipas-app .class3-card span { color: #1355a4; font-size: 20px; }
+#ipas-app .class3-card small { font-size: 14px; line-height: 1.25; }
+#ipas-app .class3-card:hover,
+#ipas-app .class3-option:hover,
+#ipas-app .class3-reflections button:hover,
+#ipas-app .class3-card.selected,
+#ipas-app .class3-option.selected,
+#ipas-app .class3-reflections button.selected {
+  border-color: #328ede;
+  transform: translateY(-2px);
+}
+#ipas-app .class3-option.wrong { border-color: #e98989; background: #ffe0e0; }
+#ipas-app .class3-card:nth-child(4n + 1), #ipas-app .class3-reflections button:nth-child(4n + 1) { background: #ffdce8; }
+#ipas-app .class3-card:nth-child(4n + 2), #ipas-app .class3-reflections button:nth-child(4n + 2) { background: #fff0bf; }
+#ipas-app .class3-card:nth-child(4n + 3), #ipas-app .class3-reflections button:nth-child(4n + 3) { background: #dff5ff; }
+#ipas-app .class3-card:nth-child(4n), #ipas-app .class3-reflections button:nth-child(4n) { background: #dff7e6; }
+#ipas-app .class3-group-row {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 0;
+  font-weight: 900;
+}
+#ipas-app .class3-group-row .class3-option { min-height: 42px; padding: 7px; }
+#ipas-app .experiment-steps { display: grid; gap: 7px; width: min(760px, 100%); }
+#ipas-app .experiment-step { text-align: left; }
+#ipas-app .experiment-step:disabled { opacity: .48; cursor: not-allowed; }
+#ipas-app .class3-data-note { margin: 0; font-weight: 900; color: #254d70; }
+#ipas-app .class3-quiz-options { grid-template-columns: repeat(2, 1fr); }
+#ipas-app .class3-reflections { grid-template-columns: repeat(3, 1fr); }
+#ipas-app .quiz-visual { font-size: clamp(42px, 8vh, 76px); }
+#ipas-app .screen[data-screen="1"] .screen-inner,
+#ipas-app .screen[data-screen="2"] .screen-inner,
+#ipas-app .screen[data-screen="3"] .screen-inner,
+#ipas-app .screen[data-screen="4"] .screen-inner,
+#ipas-app .screen[data-screen="5"] .screen-inner,
+#ipas-app .screen[data-screen="6"] .screen-inner,
+#ipas-app .screen[data-screen="7"] .screen-inner,
+#ipas-app .screen[data-screen="8"] .screen-inner { gap: clamp(6px, 1.2vh, 14px); }
+@media (max-width: 900px) {
+  #ipas-app .class3-card-grid, #ipas-app .class3-options { grid-template-columns: repeat(2, 1fr); }
+  #ipas-app .class3-reflections { grid-template-columns: 1fr; }
+  #ipas-app .class3-card { min-height: 72px; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  #ipas-app .screen { padding-top: 62px; padding-bottom: 12px; }
+  #ipas-app .class3-card { min-height: 62px; }
+  #ipas-app .class3-card small { font-size: 12px; }
+  #ipas-app .class3-option { min-height: 38px; padding: 6px 9px; }
+}
