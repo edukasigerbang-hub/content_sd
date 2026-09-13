@@ -74,28 +74,72 @@ body {
   box-shadow: 0 5px 12px #5a9abb33;
   cursor: pointer;
 }
-#ipas-app .module-stars {
-  min-width: 78px;
-  background: #fff0b5;
-  color: #936600;
-  text-align: center;
+#ipas-app .module-button {
+  background: none;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  min-width: auto;
+  min-height: auto;
+  transform: none;
 }
-.module-title {
+#ipas-app .module-button img {
+  display: block;
+  width: 210px;
+  height: 105px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+#ipas-app .module-stars {
+  min-width: 210px;
+  min-height: 70px;
+  width: 210px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 14px;
+  background: url("images/text-board.png") center center / 100% 100% no-repeat;
+  color: #4e2c10;
+  text-align: center;
+  box-shadow: none;
+  transform: none;
+}
+#ipas-app .module-title {
+  --title-board-width: min(50vw, 660px);
   position: absolute;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(15px);
+  width: var(--title-board-width);
+  height: calc(var(--title-board-width) / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   line-height: 1.1;
+  z-index: 1;
+  padding: 20px 32px 16px;
+  background: url("images/papan judul.png") center center / 100% 100% no-repeat;
 }
-.module-title strong {
+#ipas-app .module-title strong {
   display: block;
-  color: #1355a4;
-  font-size: 18px;
+  color: #0d4a8a;
+  font-size: 28px;
+  font-weight: 1000;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.7);
+  margin-bottom: 4px;
 }
-.module-title span {
-  font-size: 14px;
-  color: #55708f;
-  font-weight: 800;
+#ipas-app .module-title span {
+  display: block;
+  font-size: 22px;
+  color: #0b3f72;
+  font-weight: 900;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 #ipas-app .embedded-content {
   min-height: 0;
@@ -103,6 +147,7 @@ body {
   overflow: hidden;
   width: 100%;
   height: 100%;
+  background: url("images/bg-bab.png") center center / cover no-repeat;
 }
 #ipas-app .screen {
   position: absolute;
@@ -111,7 +156,7 @@ body {
   height: 100%;
   display: none;
   overflow: hidden;
-  padding: 74px 24px 22px;
+  padding: 70px 24px 22px;
 }
 #ipas-app .screen.active {
   display: flex;
@@ -289,20 +334,23 @@ body {
 #ipas-app .progress-dots {
   display: flex;
   justify-content: center;
-  gap: 7px;
+  gap: 6px;
 }
-#ipas-app .progress-dot {
-  width: 11px;
-  height: 11px;
+#ipas-app .module-navigation .progress-dots .progress-dot {
+  min-width: 0;
+  min-height: 0;
+  width: 18px;
+  height: 4px;
   border: 0;
-  border-radius: 50%;
+  border-radius: 999px;
   padding: 0;
   background: #c9dce6;
+  box-shadow: none;
   cursor: pointer;
 }
-#ipas-app .progress-dot.active {
-  width: 14px;
-  height: 14px;
+#ipas-app .module-navigation .progress-dots .progress-dot.active {
+  width: 26px;
+  height: 5px;
   background: #2d8fe8;
 }
 #ipas-app .module-navigation {
@@ -317,8 +365,9 @@ body {
   gap: 10px;
 }
 #ipas-app .module-navigation button {
-  min-height: 44px;
-  min-width: 120px;
+  width: 225px;
+  min-height: 78px;
+  min-width: 225px;
   border: 0;
   border-radius: 14px;
   padding: 9px 13px;
@@ -328,17 +377,47 @@ body {
   cursor: pointer;
   box-shadow: 0 5px 12px #5a9abb33;
 }
+#ipas-app .btn-general {
+  background: url("images/btn-general.png") center center / 100% 100% no-repeat;
+  color: #fff;
+  box-shadow: none;
+}
+#ipas-app .module-navigation .progress-dots .progress-dot {
+  min-width: 0;
+  min-height: 0;
+  width: 18px;
+  height: 4px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  background: #c9dce6;
+  box-shadow: none;
+  cursor: pointer;
+}
+#ipas-app .module-navigation .progress-dots .progress-dot.active {
+  width: 26px;
+  height: 5px;
+  background: #2d8fe8;
+}
+#ipas-app .module-navigation > button:first-child {
+  justify-self: start;
+}
 #ipas-app .module-navigation .next {
   justify-self: end;
   background: #42ad72;
   color: #fff;
+}
+#ipas-app .module-navigation .btn-general {
+  background: url("images/btn-general.png") center center / 100% 100% no-repeat;
+  color: #fff;
+  box-shadow: none;
 }
 #ipas-app .module-navigation button:disabled {
   opacity: 0.45;
   cursor: default;
 }
 #ipas-app .screen-count {
-  font-size: 13px;
+  font-size: 11px;
   text-align: center;
   font-weight: 900;
   color: #55708f;

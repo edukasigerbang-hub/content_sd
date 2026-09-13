@@ -1,11 +1,5 @@
 #ipas-app .embedded-content {
-  background: linear-gradient(
-    180deg,
-    #bfeaff 0%,
-    #eafcff 58%,
-    #c7efb1 58%,
-    #98d17d 100%
-  );
+  background: url("images/bg-home.png") center center / cover no-repeat;
   min-height: 100dvh;
   height: 100dvh;
   width: 100%;

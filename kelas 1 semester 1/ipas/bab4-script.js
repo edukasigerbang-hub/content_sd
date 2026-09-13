@@ -19,9 +19,12 @@
     },
     render = () => {
       screens.forEach((s, i) => s.classList.toggle("active", i === current));
-      document
-        .querySelectorAll(".progress-dot")
-        .forEach((d, i) => d.classList.toggle("active", i === current));
+      document.querySelectorAll(".progress-dot").forEach((d, i) => {
+        d.classList.toggle("active", i === current);
+        d.style.width = i === current ? "26px" : "18px";
+        d.style.height = i === current ? "5px" : "4px";
+        d.style.background = i === current ? "#2d8fe8" : "#c9dce6";
+      });
       count.textContent = "Screen " + (current + 1) + " dari 6";
       prev.disabled = current === 0;
       next.disabled = current === 5;
@@ -32,6 +35,14 @@
   for (let i = 0; i < 6; i++) {
     const d = document.createElement("button");
     d.className = "progress-dot";
+    d.style.minWidth = "0";
+    d.style.minHeight = "0";
+    d.style.width = "18px";
+    d.style.height = "4px";
+    d.style.borderRadius = "999px";
+    d.style.padding = "0";
+    d.style.background = "#c9dce6";
+    d.style.boxShadow = "none";
     d.onclick = () => {
       current = i;
       render();
