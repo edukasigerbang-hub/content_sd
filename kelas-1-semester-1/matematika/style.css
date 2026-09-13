@@ -1,0 +1,396 @@
+:root {
+  --grade1-sky: #eaf8ff;
+  --grade1-sky-strong: #bfeafc;
+  --grade1-yellow: #ffd75e;
+  --grade1-peach: #ffd7bf;
+  --grade1-pink: #ffb2c8;
+  --grade1-purple: #c8b4ff;
+  --grade1-green: #9fe6a5;
+  --grade1-blue: #66b8ff;
+  --grade1-orange: #ffb347;
+  --grade1-text: #1f3b5c;
+  --grade1-soft: #eef6ff;
+  --grade1-card: rgba(255, 255, 255, 0.88);
+  --grade1-shadow: 0 14px 34px rgba(68, 121, 177, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+.grade1-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Arial Rounded MT Bold", Arial, sans-serif;
+  color: var(--grade1-text);
+  background: linear-gradient(180deg, #dff7ff 0%, #fff8d6 100%);
+}
+
+.grade1-app {
+  width: min(100%, 980px);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 18px 16px 32px;
+}
+
+.grade1-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(112, 162, 209, 0.25);
+  box-shadow: var(--grade1-shadow);
+  backdrop-filter: blur(6px);
+}
+
+.grade1-header-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  font-weight: 800;
+}
+
+.grade1-stars {
+  color: #ffb800;
+  font-size: 1.1rem;
+}
+
+.grade1-title {
+  flex: 1;
+  font-size: 1.2rem;
+  color: var(--grade1-text);
+}
+
+.grade1-icon-button,
+.grade1-primary-button,
+.grade1-secondary-button,
+.grade1-world-card,
+.grade1-option-button {
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.grade1-icon-button:active,
+.grade1-primary-button:active,
+.grade1-secondary-button:active,
+.grade1-world-card:active,
+.grade1-option-button:active {
+  transform: scale(0.97);
+}
+
+.grade1-icon-button {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px rgba(76, 117, 168, 0.15);
+  font-size: 1.5rem;
+}
+
+.grade1-screen {
+  display: none;
+  margin-top: 18px;
+}
+
+.grade1-screen.active {
+  display: block;
+}
+
+.grade1-character-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, rgba(179, 232, 255, 0.9), rgba(255, 255, 255, 0.92));
+  box-shadow: var(--grade1-shadow);
+}
+
+.grade1-character-panel.small {
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.grade1-character {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 110px;
+  height: 110px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, #fffce8, #fde9a1);
+  box-shadow: inset 0 -10px 0 rgba(255, 196, 44, 0.25);
+  font-size: 4rem;
+}
+
+.grade1-character.tiny {
+  width: 72px;
+  height: 72px;
+  border-radius: 24px;
+  font-size: 2.5rem;
+}
+
+.grade1-bubble {
+  position: relative;
+  flex: 1;
+  padding: 18px 20px;
+  border-radius: 20px 20px 20px 6px;
+  background: #fff;
+  border: 2px solid rgba(126, 168, 231, 0.25);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.grade1-bubble::after {
+  content: "";
+  position: absolute;
+  left: -12px;
+  bottom: 18px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-left: 2px solid rgba(126, 168, 231, 0.25);
+  border-bottom: 2px solid rgba(126, 168, 231, 0.25);
+  transform: rotate(45deg);
+}
+
+.small-bubble {
+  font-size: 1rem;
+}
+
+.grade1-bubble p {
+  margin: 0;
+}
+
+.grade1-primary-button,
+.grade1-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 22px;
+  border-radius: 18px;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.grade1-primary-button {
+  width: 100%;
+  margin-top: 18px;
+  background: linear-gradient(180deg, #ffce53, #ffad3d);
+  color: #4d2e00;
+  box-shadow: 0 10px 22px rgba(255, 164, 70, 0.35);
+}
+
+.grade1-primary-button.compact {
+  width: auto;
+  min-width: 130px;
+  margin-top: 0;
+}
+
+.grade1-secondary-button {
+  background: #eef6ff;
+  color: var(--grade1-text);
+  border: 2px solid rgba(127, 176, 224, 0.28);
+}
+
+.grade1-worlds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.grade1-world-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 132px;
+  padding: 18px 12px;
+  border-radius: 28px;
+  color: var(--grade1-text);
+  box-shadow: var(--grade1-shadow);
+  font-weight: 800;
+}
+
+.grade1-world-card--a { background: linear-gradient(180deg, #d4f4d2, #b5ebb8); }
+.grade1-world-card--b { background: linear-gradient(180deg, #ffe7c4, #ffd6a5); }
+.grade1-world-card--c { background: linear-gradient(180deg, #d7ebff, #b8dfff); }
+.grade1-world-card--d { background: linear-gradient(180deg, #f7d8ff, #e2b5ff); }
+.grade1-world-card--e { background: linear-gradient(180deg, #cfeeff, #aad1ff); }
+.grade1-world-card--f { background: linear-gradient(180deg, #ffdfe9, #ffc4d7); }
+
+.grade1-world-icon {
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+}
+
+.grade1-world-name {
+  font-size: 1.15rem;
+}
+
+.grade1-lesson-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.grade1-lesson-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 2px solid rgba(126, 168, 231, 0.25);
+  font-weight: 800;
+}
+
+.grade1-activity-card {
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 32px;
+  border: 2px solid rgba(126, 168, 231, 0.25);
+  box-shadow: var(--grade1-shadow);
+  padding: 18px 18px 20px;
+}
+
+.grade1-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #f3fbff, #ecfff0);
+  border: 2px dashed rgba(94, 161, 219, 0.38);
+}
+
+.grade1-stage-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.grade1-stage-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  min-height: 70px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 8px 18px rgba(114, 142, 190, 0.14);
+}
+
+.grade1-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.grade1-option-button {
+  min-height: 78px;
+  padding: 12px;
+  border-radius: 20px;
+  background: #fff;
+  border: 2px solid rgba(126, 168, 231, 0.25);
+  box-shadow: 0 8px 16px rgba(76, 117, 168, 0.08);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--grade1-text);
+}
+
+.grade1-option-button.correct {
+  background: #dffcde;
+  border-color: #74d88b;
+  box-shadow: 0 10px 18px rgba(95, 193, 106, 0.18);
+}
+
+.grade1-option-button.wrong {
+  background: #ffe5ea;
+  border-color: #f39caf;
+}
+
+.grade1-action-row {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.grade1-progress {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 2px solid rgba(126, 168, 231, 0.25);
+}
+
+.grade1-progress-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #4c6f91;
+  margin-bottom: 8px;
+}
+
+.grade1-progress-stars {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-height: 36px;
+  align-items: center;
+  font-size: 1.7rem;
+}
+
+@media (min-width: 720px) {
+  .grade1-app {
+    padding-top: 26px;
+  }
+
+  .grade1-worlds {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grade1-option-button {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .grade1-header {
+    padding: 10px 12px;
+  }
+
+  .grade1-worlds {
+    grid-template-columns: 1fr;
+  }
+
+  .grade1-options {
+    grid-template-columns: 1fr;
+  }
+
+  .grade1-action-row {
+    flex-direction: column;
+  }
+
+  .grade1-primary-button.compact,
+  .grade1-secondary-button {
+    width: 100%;
+  }
+}

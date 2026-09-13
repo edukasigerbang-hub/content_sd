@@ -19,7 +19,7 @@
   function render() { screens.forEach((screen, index) => screen.classList.toggle("active", index === current)); document.querySelectorAll(".progress-dot").forEach((dot, index) => { dot.classList.toggle("active", index === current); dot.style.width = index === current ? "28px" : "18px"; dot.style.background = index === current ? "#2d8fe8" : "#c9dce6"; }); $("screenCount").textContent = `Screen ${current + 1} dari ${screens.length}`; $("previousButton").disabled = current === 0; $("nextButton").disabled = current === screens.length - 1; update(); }
   function renderQuiz() { const question = data.quiz[0]; $("quizQuestion").textContent = question[0]; $("quizOptions").innerHTML = question[1].map((option, index) => `<button class="decision-option" data-quiz="${index}">${option}</button>`).join(""); $("quizNext").disabled = true; document.querySelectorAll("[data-quiz]").forEach((button) => { button.onclick = () => { if (quizLocked) return; const correct = Number(button.dataset.quiz) === question[2]; button.classList.add(correct ? "selected" : "wrong"); feedback("quizFeedback", correct ? "Benar! Kamu menggunakan konsep untuk mengevaluasi masalah." : "Belum tepat. Periksa kembali bukti dan pilihanmu.", correct ? "good" : "try"); sound.play(correct ? "correct" : "wrong"); if (correct) { quizLocked = true; document.querySelectorAll("[data-quiz]").forEach((item) => { item.disabled = true; }); $("quizNext").disabled = false; reward("quiz"); } }; }); }
   function fill() {
-    $("missionTitle").textContent = `🧭 BAB ${chapter} · PROBLEM SOLVING`;
+    $("missionTitle").textContent = `🧭 BAB ${chapter} · FINAL EXPEDITION`;
     $("missionName").textContent = data.title;
     $("missionIcon").textContent = data.icon;
     $("problem").textContent = data.problem;
