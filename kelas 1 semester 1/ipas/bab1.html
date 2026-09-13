@@ -6,10 +6,11 @@
   <title>Bab 1 - Tubuhku Hebat</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="bab1-interactive.css">
+  <link rel="stylesheet" href="adventure-bab.css">
 </head>
 <body>
   <div id="app">
-    <header class="app-header"><div class="header-inner"><a class="back-button" href="index.html" aria-label="Kembali ke beranda">← Beranda</a><div class="chapter-title"><strong>BAB 1</strong><span>Tubuhku Hebat</span></div><div class="header-stars" aria-label="Jumlah bintang">⭐ <span id="starCount">0</span>/5</div></div></header>
+    <header class="app-header"><div class="header-inner"><a class="back-button" href="index.html" aria-label="Kembali ke peta petualangan">← Peta</a><div class="chapter-title"><strong>🌟 BAB 1</strong><span>Tubuhku Hebat</span></div><div class="header-tools"><button class="sound-button" id="soundButton" aria-label="Aktifkan suara">🔊</button><div class="header-stars" aria-label="Jumlah bintang">⭐ <span id="starCount">0</span>/5</div></div></div></header>
     <main class="screen-container" aria-live="polite">
       <section class="screen active" data-screen="0"><div class="screen-inner"><div class="hero-character">👦🏻</div><h1 class="screen-title">TUBUHKU HEBAT</h1><p class="screen-subtitle">Yuk kenali tubuh kita!</p><button class="start-button" data-go="1">Mulai 🚀</button></div></section>
       <section class="screen" data-screen="1"><div class="screen-inner"><h2 class="screen-title">Kenali tubuhmu</h2><p class="screen-subtitle">Klik satu bagian tubuh untuk melihat kegunaannya.</p><div class="body-grid"><button class="body-card" data-part="Mata" data-info="Mata digunakan untuk melihat."><span class="body-icon">👀</span>Mata</button><button class="body-card" data-part="Telinga" data-info="Telinga digunakan untuk mendengar."><span class="body-icon">👂</span>Telinga</button><button class="body-card" data-part="Hidung" data-info="Hidung digunakan untuk mencium bau."><span class="body-icon">👃</span>Hidung</button><button class="body-card" data-part="Mulut" data-info="Mulut digunakan untuk makan dan berbicara."><span class="body-icon">👄</span>Mulut</button><button class="body-card" data-part="Tangan" data-info="Tangan digunakan untuk memegang."><span class="body-icon">✋</span>Tangan</button><button class="body-card" data-part="Kaki" data-info="Kaki digunakan untuk berjalan."><span class="body-icon">🦶</span>Kaki</button></div><div class="body-detail" id="bodyDetail">Pilih satu kartu tubuh.</div></div></section>
@@ -23,6 +24,8 @@
   <div class="portrait-message">📱 Putar perangkatmu ke posisi mendatar untuk belajar.</div>
   <script>
     const storageKey='IPAS';
+    let soundEnabled=false;
+    const speak=text=>{if(soundEnabled&&'speechSynthesis'in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(text))}};
     const saved=JSON.parse(localStorage.getItem(storageKey)||'{}');
     const state=saved.bab1||{steps:[],stars:0};
     state.steps=Array.isArray(state.steps)?state.steps:[];
@@ -31,7 +34,7 @@
     const save=()=>{const all=JSON.parse(localStorage.getItem(storageKey)||'{}');all.bab1=state;localStorage.setItem(storageKey,JSON.stringify(all))};
     const complete=step=>{if(!state.steps.includes(step)){state.steps.push(step);state.stars=Math.min(5,state.stars+1);save()}updateStatus()};
     const updateStatus=()=>{starCount.textContent=state.stars;rewardStars.textContent='★'.repeat(state.stars)+'☆'.repeat(5-state.stars);rewardMessage.textContent=state.stars===5?'Kamu sudah menyelesaikan Bab 1 - Tubuhku Hebat.':'Selesaikan semua aktivitas untuk mengumpulkan lima bintang.'};
-    const showFeedback=(id,text,kind)=>{const node=document.getElementById(id);node.textContent=text;node.className='feedback '+(kind||'')};
+    const showFeedback=(id,text,kind)=>{const node=document.getElementById(id);node.textContent=text;node.className='feedback '+(kind||'');speak(text)};
     const render=()=>{screens.forEach((screen,index)=>screen.classList.toggle('active',index===currentScreen));document.querySelectorAll('.dot').forEach((dot,index)=>dot.classList.toggle('active',index===currentScreen));screenCount.textContent='Screen '+(currentScreen+1)+' dari 6';previousButton.disabled=currentScreen===0;nextButton.disabled=currentScreen===5;nextButton.textContent=currentScreen===0?'Mulai →':currentScreen===5?'Selesai':'Berikutnya →';updateStatus()};
     const goTo=screen=>{currentScreen=Math.max(0,Math.min(5,screen));render()};
     document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>goTo(Number(button.dataset.go))));
@@ -41,6 +44,7 @@
     document.querySelectorAll('.observe-part').forEach(card=>card.addEventListener('click',()=>{const part=card.dataset.observe;if(!selectedParts.includes(part)){selectedParts.push(part);card.classList.add('selected')}showFeedback('observeFeedback','Terpilih: '+selectedParts.length+' / 3 ⭐',selectedParts.length===3?'good':'');if(selectedParts.length===3)complete('observe')}));
     document.querySelectorAll('.match-card').forEach(card=>card.addEventListener('click',()=>{if(card.classList.contains('matched'))return;if(!firstMatch){firstMatch=card;card.classList.add('selected');return}card.classList.add('selected');if(firstMatch!==card&&firstMatch.dataset.match===card.dataset.match){firstMatch.classList.remove('selected');firstMatch.classList.add('matched');card.classList.add('matched');firstMatch=null;matchedPairs+=1;showFeedback('matchFeedback','Pasangan benar: '+matchedPairs+' / 4',matchedPairs===4?'good':'');if(matchedPairs===4)complete('match')}else{showFeedback('matchFeedback','😊 Belum cocok. Coba lagi.','try');const previous=firstMatch;setTimeout(()=>{previous.classList.remove('selected');card.classList.remove('selected');firstMatch=null},350)}}));
     document.querySelectorAll('[data-answer]').forEach(button=>button.addEventListener('click',()=>{const correct=button.dataset.answer==='true';document.querySelectorAll('[data-answer]').forEach(answer=>{answer.disabled=true;if(answer.dataset.answer==='true')answer.classList.add('correct')});button.classList.add(correct?'correct':'wrong');showFeedback('quizFeedback',correct?'🎉 BENAR! Mata digunakan untuk melihat.':'💡 Coba lagi! Mata digunakan untuk melihat.',correct?'good':'try');if(correct)complete('quiz')}));
+    document.getElementById('soundButton').addEventListener('click',()=>{soundEnabled=!soundEnabled;document.getElementById('soundButton').classList.toggle('sound-on',soundEnabled);speak('Ayo belajar tubuhku hebat')});
     const overflowCheck=()=>{console.assert(document.documentElement.scrollHeight<=document.documentElement.clientHeight,'ERROR: Vertical overflow detected');console.assert(document.documentElement.scrollWidth<=document.documentElement.clientWidth,'ERROR: Horizontal overflow detected')};
     render();overflowCheck();window.addEventListener('resize',overflowCheck);
   </script>
