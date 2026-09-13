@@ -2,8 +2,10 @@
 
 :root { --ink: #243447; --paper: #fffaf2; --coral: #ff806d; --sun: #f6bd45; --leaf: #69b889; --sky: #5db6d5; --violet: #9a86d8; --line: #eadfce; }
 * { box-sizing: border-box; }
-body.grade1-math { margin: 0; min-height: 100vh; color: var(--ink); background: #f6eee1; font-family: 'Nunito', sans-serif; }
-.grade1-math-shell { width: min(100%, 1080px); min-height: 100vh; margin: auto; padding: 18px 24px 28px; background: var(--paper); overflow: hidden; }
+body.grade1-math { margin: 0; min-height: 100vh; color: var(--ink); background: #f6eee1 center / cover fixed no-repeat; font-family: 'Nunito', sans-serif; }
+body.grade1-math:has(#math-map) { background-image: url('images/bg-home.png'); }
+body.grade1-math:has(#chapter-app) { background-image: url('images/bg-bab.png'); }
+.grade1-math-shell { width: min(100%, 1080px); min-height: 100vh; margin: auto; padding: 18px 24px 28px; background: #fffaf2e8; overflow: hidden; }
 .grade1-math-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--line); padding-bottom: 14px; }
 .grade1-math-brand { color: var(--ink); font: 700 1.25rem 'Baloo 2', cursive; text-decoration: none; letter-spacing: .04em; }
 .grade1-math-semester { color: #8e8070; font-size: .76rem; font-weight: 800; letter-spacing: .12em; }
