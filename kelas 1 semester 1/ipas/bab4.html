@@ -1,1 +1,202 @@
-<!doctype html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bab 4 - Hewan</title><link rel="stylesheet" href="embedded-module.css"></head><body><div id="ipas-app"><main class="embedded-content"><div class="module-controls"><a class="module-button" href="index.html">← Peta</a><div class="module-title"><strong>🐱 BAB 4</strong><span>Hewan di Sekitarku</span></div><div class="module-stars">⭐ <span id="stars">0</span>/5</div></div><section class="screen active"><div class="screen-inner"><div class="module-character">🐱</div><h1 class="screen-title">Hewan di Sekitarku</h1><p class="screen-subtitle">Ayo mengenal hewan dan cara menyayanginya.</p><button class="module-action" data-go="1">Mulai →</button></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🐱🐦🐟</div><h2 class="screen-title">Kenali hewan</h2><p class="screen-subtitle">Klik hewan untuk melihat tempat tinggalnya.</p><div class="visual-grid"><button class="visual-card animal" data-info="Kucing dapat tinggal di rumah.">🐱 Kucing</button><button class="visual-card animal" data-info="Burung liar tinggal di alam.">🐦 Burung</button><button class="visual-card animal" data-info="Ikan hidup di air.">🐟 Ikan</button><button class="visual-card animal" data-info="Kupu-kupu hidup di taman.">🦋 Kupu-kupu</button></div><div class="info-box" id="info">Pilih satu hewan.</div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🏠🌳</div><h2 class="screen-title">Peliharaan atau liar?</h2><p class="screen-subtitle">Pilih hewan yang biasa dipelihara.</p><div class="choice-grid"><button class="choice-card pet" data-ok="true">🐱 Kucing</button><button class="choice-card pet" data-ok="false">🐒 Monyet liar</button><button class="choice-card pet" data-ok="true">🐟 Ikan</button></div><div class="feedback" id="petFeedback"></div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">💗</div><h2 class="screen-title">Ayo menyayangi hewan</h2><p class="screen-subtitle">Pilih tindakan yang aman dan lembut.</p><div class="choice-grid"><button class="choice-card care" data-ok="true">🥣 Memberi makan</button><button class="choice-card care" data-ok="false">🪨 Melempar batu</button><button class="choice-card care" data-ok="true">👀 Mengamati dari jauh</button></div><div class="feedback" id="careFeedback"></div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🎯</div><h2 class="screen-title">Kuis</h2><p class="screen-subtitle">Sikap baik terhadap hewan adalah...</p><div class="quiz-grid"><button class="quiz-option" data-answer="false">Menyakiti</button><button class="quiz-option" data-answer="true">Merawat</button><button class="quiz-option" data-answer="false">Mengganggu</button></div><div class="feedback" id="quizFeedback"></div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🎉</div><h2 class="screen-title">Hebat!</h2><p class="screen-subtitle">Kamu sudah belajar menjadi sahabat hewan.</p><div class="reward-stars" id="reward">☆☆☆☆☆</div><a class="module-next" href="index.html">Kembali ke Peta</a></div></section><nav class="module-navigation"><button id="prev">← Kembali</button><div><div class="progress-dots" id="dots"></div><div class="screen-count" id="count">Screen 1 dari 6</div></div><button class="next" id="next">Berikutnya →</button></nav></main><div class="portrait-message">📱↔️<br>Putar perangkatmu ke landscape.</div></div><script>(function(){const key='IPAS',all=JSON.parse(localStorage.getItem(key)||'{}'),state=all.bab4||{stars:0,steps:[]};let current=0;const screens=[...document.querySelectorAll('.screen')],save=()=>{const data=JSON.parse(localStorage.getItem(key)||'{}');data.bab4=state;localStorage.setItem(key,JSON.stringify(data))},done=s=>{if(!state.steps.includes(s)){state.steps.push(s);state.stars=Math.min(5,state.stars+1);save()}render()},render=()=>{screens.forEach((s,i)=>s.classList.toggle('active',i===current));document.querySelectorAll('.progress-dot').forEach((d,i)=>d.classList.toggle('active',i===current));count.textContent='Screen '+(current+1)+' dari 6';prev.disabled=current===0;next.disabled=current===5;stars.textContent=state.stars;reward.textContent='★'.repeat(state.stars)+'☆'.repeat(5-state.stars)};for(let i=0;i<6;i++){const d=document.createElement('button');d.className='progress-dot';d.onclick=()=>{current=i;render()};dots.appendChild(d)};document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{current=+b.dataset.go;render()});prev.onclick=()=>{if(current>0){current--;render()}};next.onclick=()=>{if(current<5){current++;render()}};document.querySelectorAll('.animal').forEach(b=>b.onclick=()=>{info.textContent=b.dataset.info;done('animals')});document.querySelectorAll('.pet,.care').forEach(b=>b.onclick=()=>{const ok=b.dataset.ok==='true';b.classList.toggle('selected',ok);const id=b.classList.contains('pet')?'petFeedback':'careFeedback';feedback(id,ok?'🎉 Pilihan yang baik!':'😊 Pilih tindakan lembut.',ok?'good':'try');if(ok)done(b.classList.contains('pet')?'pet':'care')});document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{const ok=b.dataset.answer==='true';b.classList.add(ok?'correct':'wrong');feedback('quizFeedback',ok?'🎉 Benar! Kita harus merawat hewan.':'😊 Coba lagi.',ok?'good':'try');if(ok)done('quiz')});function feedback(id,text,kind){const e=document.getElementById(id);e.textContent=text;e.className='feedback '+kind}render()})();</script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Bab 4 - Hewan
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="ipas-app">
+   <main class="embedded-content">
+    <div class="module-controls">
+     <a class="module-button" href="index.html">
+      ← Peta
+     </a>
+     <div class="module-title">
+      <strong>
+       🐱 BAB 4
+      </strong>
+      <span>
+       Hewan di Sekitarku
+      </span>
+     </div>
+     <div class="module-stars">
+      ⭐
+      <span id="stars">
+       0
+      </span>
+      /5
+     </div>
+    </div>
+    <section class="screen active">
+     <div class="screen-inner">
+      <div class="module-character">
+       🐱
+      </div>
+      <h1 class="screen-title">
+       Hewan di Sekitarku
+      </h1>
+      <p class="screen-subtitle">
+       Ayo mengenal hewan dan cara menyayanginya.
+      </p>
+      <button class="module-action" data-go="1">
+       Mulai →
+      </button>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🐱🐦🐟
+      </div>
+      <h2 class="screen-title">
+       Kenali hewan
+      </h2>
+      <p class="screen-subtitle">
+       Klik hewan untuk melihat tempat tinggalnya.
+      </p>
+      <div class="visual-grid">
+       <button class="visual-card animal" data-info="Kucing dapat tinggal di rumah.">
+        🐱 Kucing
+       </button>
+       <button class="visual-card animal" data-info="Burung liar tinggal di alam.">
+        🐦 Burung
+       </button>
+       <button class="visual-card animal" data-info="Ikan hidup di air.">
+        🐟 Ikan
+       </button>
+       <button class="visual-card animal" data-info="Kupu-kupu hidup di taman.">
+        🦋 Kupu-kupu
+       </button>
+      </div>
+      <div class="info-box" id="info">
+       Pilih satu hewan.
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🏠🌳
+      </div>
+      <h2 class="screen-title">
+       Peliharaan atau liar?
+      </h2>
+      <p class="screen-subtitle">
+       Pilih hewan yang biasa dipelihara.
+      </p>
+      <div class="choice-grid">
+       <button class="choice-card pet" data-ok="true">
+        🐱 Kucing
+       </button>
+       <button class="choice-card pet" data-ok="false">
+        🐒 Monyet liar
+       </button>
+       <button class="choice-card pet" data-ok="true">
+        🐟 Ikan
+       </button>
+      </div>
+      <div class="feedback" id="petFeedback">
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       💗
+      </div>
+      <h2 class="screen-title">
+       Ayo menyayangi hewan
+      </h2>
+      <p class="screen-subtitle">
+       Pilih tindakan yang aman dan lembut.
+      </p>
+      <div class="choice-grid">
+       <button class="choice-card care" data-ok="true">
+        🥣 Memberi makan
+       </button>
+       <button class="choice-card care" data-ok="false">
+        🪨 Melempar batu
+       </button>
+       <button class="choice-card care" data-ok="true">
+        👀 Mengamati dari jauh
+       </button>
+      </div>
+      <div class="feedback" id="careFeedback">
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎯
+      </div>
+      <h2 class="screen-title">
+       Kuis
+      </h2>
+      <p class="screen-subtitle">
+       Sikap baik terhadap hewan adalah...
+      </p>
+      <div class="quiz-grid">
+       <button class="quiz-option" data-answer="false">
+        Menyakiti
+       </button>
+       <button class="quiz-option" data-answer="true">
+        Merawat
+       </button>
+       <button class="quiz-option" data-answer="false">
+        Mengganggu
+       </button>
+      </div>
+      <div class="feedback" id="quizFeedback">
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎉
+      </div>
+      <h2 class="screen-title">
+       Hebat!
+      </h2>
+      <p class="screen-subtitle">
+       Kamu sudah belajar menjadi sahabat hewan.
+      </p>
+      <div class="reward-stars" id="reward">
+       ☆☆☆☆☆
+      </div>
+      <a class="module-next" href="index.html">
+       Kembali ke Peta
+      </a>
+     </div>
+    </section>
+    <nav class="module-navigation">
+     <button id="prev">
+      ← Kembali
+     </button>
+     <div>
+      <div class="progress-dots" id="dots">
+      </div>
+      <div class="screen-count" id="count">
+       Screen 1 dari 6
+      </div>
+     </div>
+     <button class="next" id="next">
+      Berikutnya →
+     </button>
+    </nav>
+   </main>
+   <div class="portrait-message">
+    📱↔️
+    <br/>
+    Putar perangkatmu ke landscape.
+   </div>
+  </div>
+  <script src="bab4-script.js"></script>
+ </body>
+</html>
+

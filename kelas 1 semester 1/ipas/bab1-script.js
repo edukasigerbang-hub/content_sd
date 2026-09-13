@@ -1,0 +1,163 @@
+(function () {
+  const key = "IPAS";
+  const saved = JSON.parse(localStorage.getItem(key) || "{}");
+  const state = saved.bab1 || { steps: [], stars: 0 };
+  state.steps = Array.isArray(state.steps) ? state.steps : [];
+  let current = 0;
+  let selected = [];
+  let first = null;
+  let pairs = 0;
+  const screens = [...document.querySelectorAll(".screen")];
+  const save = () => {
+    const all = JSON.parse(localStorage.getItem(key) || "{}");
+    all.bab1 = state;
+    localStorage.setItem(key, JSON.stringify(all));
+  };
+  const complete = (step) => {
+    if (!state.steps.includes(step)) {
+      state.steps.push(step);
+      state.stars = Math.min(5, state.stars + 1);
+      save();
+    }
+    update();
+  };
+  const update = () => {
+    starCount.textContent = state.stars;
+    rewardStars.textContent =
+      "★".repeat(state.stars) + "☆".repeat(5 - state.stars);
+  };
+  const feedback = (id, text, kind) => {
+    const e = document.getElementById(id);
+    e.textContent = text;
+    e.className = "feedback " + (kind || "");
+  };
+  const render = () => {
+    screens.forEach((s, i) => s.classList.toggle("active", i === current));
+    document
+      .querySelectorAll(".progress-dot")
+      .forEach((d, i) => d.classList.toggle("active", i === current));
+    screenCount.textContent = "Screen " + (current + 1) + " dari 6";
+    previousButton.disabled = current === 0;
+    nextButton.disabled = current === 5;
+    update();
+  };
+  for (let i = 0; i < 6; i++) {
+    const d = document.createElement("button");
+    d.className = "progress-dot";
+    d.title = "Screen " + (i + 1);
+    d.onclick = () => {
+      current = i;
+      render();
+    };
+    dots.appendChild(d);
+  }
+  document.querySelectorAll("[data-go]").forEach(
+    (b) =>
+      (b.onclick = () => {
+        current = +b.dataset.go;
+        render();
+      }),
+  );
+  previousButton.onclick = () => {
+    if (current > 0) {
+      current--;
+      render();
+    }
+  };
+  nextButton.onclick = () => {
+    if (current < 5) {
+      current++;
+      render();
+    }
+  };
+  document.querySelectorAll("[data-part]").forEach(
+    (b) =>
+      (b.onclick = () => {
+        bodyInfo.innerHTML =
+          "<strong>" + b.dataset.part + "</strong><br>" + b.dataset.info;
+        complete("materi");
+      }),
+  );
+  document.querySelectorAll(".observe").forEach(
+    (b) =>
+      (b.onclick = () => {
+        if (!selected.includes(b.dataset.observe)) {
+          selected.push(b.dataset.observe);
+          b.classList.add("selected");
+        }
+        feedback(
+          "observeFeedback",
+          "Terpilih: " + selected.length + " / 3 ⭐",
+          selected.length === 3 ? "good" : "",
+        );
+        if (selected.length === 3) complete("observe");
+      }),
+  );
+  document.querySelectorAll(".match-card").forEach(
+    (b) =>
+      (b.onclick = () => {
+        if (b.classList.contains("matched")) return;
+        if (!first) {
+          first = b;
+          b.classList.add("selected");
+          return;
+        }
+        b.classList.add("selected");
+        if (first !== b && first.dataset.match === b.dataset.match) {
+          first.classList.remove("selected");
+          first.classList.add("matched");
+          b.classList.add("matched");
+          first = null;
+          pairs++;
+          feedback(
+            "matchFeedback",
+            "Pasangan benar: " + pairs + " / 4",
+            pairs === 4 ? "good" : "",
+          );
+          if (pairs === 4) complete("match");
+        } else {
+          feedback("matchFeedback", "😊 Belum cocok. Coba lagi.", "try");
+          const old = first;
+          setTimeout(() => {
+            old.classList.remove("selected");
+            b.classList.remove("selected");
+            first = null;
+          }, 350);
+        }
+      }),
+  );
+  document.querySelectorAll("[data-answer]").forEach(
+    (b) =>
+      (b.onclick = () => {
+        const ok = b.dataset.answer === "true";
+        document.querySelectorAll("[data-answer]").forEach((x) => {
+          x.disabled = true;
+          if (x.dataset.answer === "true") x.classList.add("correct");
+        });
+        b.classList.add(ok ? "correct" : "wrong");
+        feedback(
+          "quizFeedback",
+          ok
+            ? "🎉 BENAR! Mata digunakan untuk melihat."
+            : "💡 Coba lagi! Mata digunakan untuk melihat.",
+          ok ? "good" : "try",
+        );
+        if (ok) complete("quiz");
+      }),
+  );
+  const check = () => {
+    console.assert(
+      document.documentElement.scrollWidth <=
+        document.documentElement.clientWidth,
+      "ERROR: Horizontal overflow detected",
+    );
+    console.assert(
+      document.documentElement.scrollHeight <=
+        document.documentElement.clientHeight,
+      "ERROR: Vertical overflow detected",
+    );
+  };
+  render();
+  check();
+  window.addEventListener("resize", check);
+})();

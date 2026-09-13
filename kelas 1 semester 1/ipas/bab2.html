@@ -1,1 +1,215 @@
-<!doctype html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bab 2 - Lingkunganku</title><link rel="stylesheet" href="embedded-module.css"></head><body><div id="ipas-app"><main class="embedded-content"><div class="module-controls"><a class="module-button" href="index.html">← Peta</a><div class="module-title"><strong>🏠 BAB 2</strong><span>Aku dan Lingkunganku</span></div><div class="module-stars">⭐ <span id="stars">0</span>/5</div></div><section class="screen active"><div class="screen-inner"><div class="module-character">🏡</div><h1 class="screen-title">Aku dan Lingkunganku</h1><p class="screen-subtitle">Ayo mengamati rumah, sekolah, dan benda di sekitar kita.</p><button class="module-action" data-go="1">Mulai →</button></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🏠🏫🌳</div><h2 class="screen-title">Kenali lingkungan</h2><p class="screen-subtitle">Pilih benda yang kamu lihat di lingkungan.</p><div class="visual-grid"><button class="visual-card observe" data-info="Pohon adalah benda hidup."><span class="visual-icon">🌳</span>Pohon</button><button class="visual-card observe" data-info="Kursi adalah benda tak hidup."><span class="visual-icon">🪑</span>Kursi</button><button class="visual-card observe" data-info="Burung adalah benda hidup."><span class="visual-icon">🐦</span>Burung</button><button class="visual-card observe" data-info="Rumah adalah benda tak hidup."><span class="visual-icon">🏠</span>Rumah</button></div><div class="info-box" id="info">Pilih satu benda.</div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🔎</div><h2 class="screen-title">Hidup atau tak hidup?</h2><p class="screen-subtitle">Pilih semua benda hidup.</p><div class="choice-grid"><button class="choice-card living" data-ok="true">🌱 Tumbuhan</button><button class="choice-card living" data-ok="false">📚 Buku</button><button class="choice-card living" data-ok="true">🐱 Kucing</button></div><div class="feedback" id="livingFeedback"></div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🧹</div><h2 class="screen-title">Jaga lingkungan</h2><p class="screen-subtitle">Pilih tindakan yang membuat lingkungan bersih.</p><div class="choice-grid"><button class="choice-card clean" data-ok="true">🗑️ Buang sampah</button><button class="choice-card clean" data-ok="false">🖍️ Coret meja</button><button class="choice-card clean" data-ok="true">🌱 Rawat tanaman</button></div><div class="feedback" id="cleanFeedback"></div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🎯</div><h2 class="screen-title">Kuis</h2><p class="screen-subtitle">Pohon termasuk benda...</p><div class="quiz-grid"><button class="quiz-option" data-answer="true">🌳<br>Hidup</button><button class="quiz-option" data-answer="false">🪑<br>Tak hidup</button></div><div class="feedback" id="quizFeedback"></div></div></section><section class="screen"><div class="screen-inner"><div class="module-character">🎉</div><h2 class="screen-title">Hebat!</h2><p class="screen-subtitle">Kamu sudah belajar menjaga lingkungan.</p><div class="reward-stars" id="reward">☆☆☆☆☆</div><a class="module-next" href="bab3.html">Lanjut Bab 3 →</a></div></section><nav class="module-navigation"><button id="prev">← Kembali</button><div><div class="progress-dots" id="dots"></div><div class="screen-count" id="count">Screen 1 dari 6</div></div><button class="next" id="next">Berikutnya →</button></nav></main><div class="portrait-message">📱↔️<br>Putar perangkatmu ke landscape.</div></div><script>(function(){const key='IPAS',all=JSON.parse(localStorage.getItem(key)||'{}'),state=all.bab2||{stars:0,steps:[]};let current=0;const screens=[...document.querySelectorAll('.screen')],save=()=>{const data=JSON.parse(localStorage.getItem(key)||'{}');data.bab2=state;localStorage.setItem(key,JSON.stringify(data))},done=s=>{if(!state.steps.includes(s)){state.steps.push(s);state.stars=Math.min(5,state.stars+1);save()}render()},render=()=>{screens.forEach((s,i)=>s.classList.toggle('active',i===current));document.querySelectorAll('.progress-dot').forEach((d,i)=>d.classList.toggle('active',i===current));count.textContent='Screen '+(current+1)+' dari 6';prev.disabled=current===0;next.disabled=current===5;stars.textContent=state.stars;reward.textContent='★'.repeat(state.stars)+'☆'.repeat(5-state.stars)};for(let i=0;i<6;i++){const d=document.createElement('button');d.className='progress-dot';d.onclick=()=>{current=i;render()};dots.appendChild(d)};document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{current=+b.dataset.go;render()});prev.onclick=()=>{if(current>0){current--;render()}};next.onclick=()=>{if(current<5){current++;render()}};document.querySelectorAll('.observe').forEach(b=>b.onclick=()=>{info.textContent=b.dataset.info;done('observe')});document.querySelectorAll('.living,.clean').forEach(b=>b.onclick=()=>{const ok=b.dataset.ok==='true';b.classList.toggle('selected',ok);const id=b.classList.contains('living')?'livingFeedback':'cleanFeedback';feedback(id,ok?'✅ Pilihan benar!':'😊 Belum tepat.',ok?'good':'try');if(ok)done(b.classList.contains('living')?'living':'clean')});document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{const ok=b.dataset.answer==='true';b.classList.add(ok?'correct':'wrong');feedback('quizFeedback',ok?'🎉 Benar! Pohon hidup dan tumbuh.':'😊 Coba lagi.',ok?'good':'try');if(ok)done('quiz')});function feedback(id,text,kind){const e=document.getElementById(id);e.textContent=text;e.className='feedback '+kind}render()})();</script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Bab 2 - Lingkunganku
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="ipas-app">
+   <main class="embedded-content">
+    <div class="module-controls">
+     <a class="module-button" href="index.html">
+      ← Peta
+     </a>
+     <div class="module-title">
+      <strong>
+       🏠 BAB 2
+      </strong>
+      <span>
+       Aku dan Lingkunganku
+      </span>
+     </div>
+     <div class="module-stars">
+      ⭐
+      <span id="stars">
+       0
+      </span>
+      /5
+     </div>
+    </div>
+    <section class="screen active">
+     <div class="screen-inner">
+      <div class="module-character">
+       🏡
+      </div>
+      <h1 class="screen-title">
+       Aku dan Lingkunganku
+      </h1>
+      <p class="screen-subtitle">
+       Ayo mengamati rumah, sekolah, dan benda di sekitar kita.
+      </p>
+      <button class="module-action" data-go="1">
+       Mulai →
+      </button>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🏠🏫🌳
+      </div>
+      <h2 class="screen-title">
+       Kenali lingkungan
+      </h2>
+      <p class="screen-subtitle">
+       Pilih benda yang kamu lihat di lingkungan.
+      </p>
+      <div class="visual-grid">
+       <button class="visual-card observe" data-info="Pohon adalah benda hidup.">
+        <span class="visual-icon">
+         🌳
+        </span>
+        Pohon
+       </button>
+       <button class="visual-card observe" data-info="Kursi adalah benda tak hidup.">
+        <span class="visual-icon">
+         🪑
+        </span>
+        Kursi
+       </button>
+       <button class="visual-card observe" data-info="Burung adalah benda hidup.">
+        <span class="visual-icon">
+         🐦
+        </span>
+        Burung
+       </button>
+       <button class="visual-card observe" data-info="Rumah adalah benda tak hidup.">
+        <span class="visual-icon">
+         🏠
+        </span>
+        Rumah
+       </button>
+      </div>
+      <div class="info-box" id="info">
+       Pilih satu benda.
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🔎
+      </div>
+      <h2 class="screen-title">
+       Hidup atau tak hidup?
+      </h2>
+      <p class="screen-subtitle">
+       Pilih semua benda hidup.
+      </p>
+      <div class="choice-grid">
+       <button class="choice-card living" data-ok="true">
+        🌱 Tumbuhan
+       </button>
+       <button class="choice-card living" data-ok="false">
+        📚 Buku
+       </button>
+       <button class="choice-card living" data-ok="true">
+        🐱 Kucing
+       </button>
+      </div>
+      <div class="feedback" id="livingFeedback">
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧹
+      </div>
+      <h2 class="screen-title">
+       Jaga lingkungan
+      </h2>
+      <p class="screen-subtitle">
+       Pilih tindakan yang membuat lingkungan bersih.
+      </p>
+      <div class="choice-grid">
+       <button class="choice-card clean" data-ok="true">
+        🗑️ Buang sampah
+       </button>
+       <button class="choice-card clean" data-ok="false">
+        🖍️ Coret meja
+       </button>
+       <button class="choice-card clean" data-ok="true">
+        🌱 Rawat tanaman
+       </button>
+      </div>
+      <div class="feedback" id="cleanFeedback">
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎯
+      </div>
+      <h2 class="screen-title">
+       Kuis
+      </h2>
+      <p class="screen-subtitle">
+       Pohon termasuk benda...
+      </p>
+      <div class="quiz-grid">
+       <button class="quiz-option" data-answer="true">
+        🌳
+        <br/>
+        Hidup
+       </button>
+       <button class="quiz-option" data-answer="false">
+        🪑
+        <br/>
+        Tak hidup
+       </button>
+      </div>
+      <div class="feedback" id="quizFeedback">
+      </div>
+     </div>
+    </section>
+    <section class="screen">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎉
+      </div>
+      <h2 class="screen-title">
+       Hebat!
+      </h2>
+      <p class="screen-subtitle">
+       Kamu sudah belajar menjaga lingkungan.
+      </p>
+      <div class="reward-stars" id="reward">
+       ☆☆☆☆☆
+      </div>
+      <a class="module-next" href="bab3.html">
+       Lanjut Bab 3 →
+      </a>
+     </div>
+    </section>
+    <nav class="module-navigation">
+     <button id="prev">
+      ← Kembali
+     </button>
+     <div>
+      <div class="progress-dots" id="dots">
+      </div>
+      <div class="screen-count" id="count">
+       Screen 1 dari 6
+      </div>
+     </div>
+     <button class="next" id="next">
+      Berikutnya →
+     </button>
+    </nav>
+   </main>
+   <div class="portrait-message">
+    📱↔️
+    <br/>
+    Putar perangkatmu ke landscape.
+   </div>
+  </div>
+  <script src="bab2-script.js"></script>
+ </body>
+</html>
+

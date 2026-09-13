@@ -1,1 +1,288 @@
-<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Bab 1 - Tubuhku Hebat</title><link rel="stylesheet" href="embedded-module.css"></head><body><div id="ipas-app"><main class="embedded-content"><div class="module-controls"><a class="module-button" href="index.html">← Peta</a><div class="module-title"><strong>🌟 BAB 1</strong><span>Tubuhku Hebat</span></div><div class="module-stars">⭐ <span id="starCount">0</span>/5</div></div><section class="screen active" data-screen="0"><div class="screen-inner"><div class="module-character">👦🏻</div><h1 class="screen-title">TUBUHKU HEBAT</h1><p class="screen-subtitle">Yuk kenali tubuh kita!</p><button class="module-action" data-go="1">Mulai 🚀</button></div></section><section class="screen" data-screen="1"><div class="screen-inner"><h2 class="screen-title">Kenali tubuhmu</h2><p class="screen-subtitle">Klik satu bagian tubuh untuk melihat kegunaannya.</p><div class="visual-grid six"><button class="visual-card" data-part="Mata" data-info="Mata digunakan untuk melihat."><span class="visual-icon">👀</span>Mata</button><button class="visual-card" data-part="Telinga" data-info="Telinga digunakan untuk mendengar."><span class="visual-icon">👂</span>Telinga</button><button class="visual-card" data-part="Hidung" data-info="Hidung digunakan untuk mencium bau."><span class="visual-icon">👃</span>Hidung</button><button class="visual-card" data-part="Mulut" data-info="Mulut digunakan untuk makan dan berbicara."><span class="visual-icon">👄</span>Mulut</button><button class="visual-card" data-part="Tangan" data-info="Tangan digunakan untuk memegang."><span class="visual-icon">✋</span>Tangan</button><button class="visual-card" data-part="Kaki" data-info="Kaki digunakan untuk berjalan."><span class="visual-icon">🦶</span>Kaki</button></div><div class="info-box" id="bodyInfo">Pilih satu bagian tubuh.</div></div></section><section class="screen" data-screen="2"><div class="screen-inner"><div class="module-character">🔎</div><h2 class="screen-title">Ayo Mengamati</h2><p class="screen-subtitle">Cari dan pilih 3 bagian tubuh yang kamu punya.</p><div class="visual-grid six"><button class="visual-card observe" data-observe="mata"><span class="visual-icon">👀</span>Mata</button><button class="visual-card observe" data-observe="telinga"><span class="visual-icon">👂</span>Telinga</button><button class="visual-card observe" data-observe="hidung"><span class="visual-icon">👃</span>Hidung</button><button class="visual-card observe" data-observe="mulut"><span class="visual-icon">👄</span>Mulut</button><button class="visual-card observe" data-observe="tangan"><span class="visual-icon">✋</span>Tangan</button><button class="visual-card observe" data-observe="kaki"><span class="visual-icon">🦶</span>Kaki</button></div><div class="feedback" id="observeFeedback">Terpilih: 0 / 3 ⭐</div></div></section><section class="screen" data-screen="3"><div class="screen-inner"><div class="module-character">🧩</div><h2 class="screen-title">Pasangkan bagian tubuh</h2><p class="screen-subtitle">Klik gambar, lalu fungsi yang sesuai.</p><div class="match-grid"><button class="match-card" data-match="lihat">👀 Mata</button><button class="match-card" data-match="dengar">Mendengar</button><button class="match-card" data-match="dengar">👂 Telinga</button><button class="match-card" data-match="cium">Mencium</button><button class="match-card" data-match="cium">👃 Hidung</button><button class="match-card" data-match="pegang">Memegang</button><button class="match-card" data-match="pegang">✋ Tangan</button><button class="match-card" data-match="lihat">Melihat</button></div><div class="feedback" id="matchFeedback">Pasangan benar: 0 / 4</div></div></section><section class="screen" data-screen="4"><div class="screen-inner"><div class="module-character">🎯</div><div class="screen-subtitle">KUIS</div><div class="quiz-visual">👀</div><h2 class="screen-title">Bagian tubuh untuk melihat adalah...</h2><div class="quiz-grid"><button class="quiz-option" data-answer="false">👂<br>Telinga</button><button class="quiz-option" data-answer="true">👀<br>Mata</button><button class="quiz-option" data-answer="false">👃<br>Hidung</button><button class="quiz-option" data-answer="false">🦶<br>Kaki</button></div><div class="feedback" id="quizFeedback"></div></div></section><section class="screen" data-screen="5"><div class="screen-inner"><div class="module-character">🎉</div><h2 class="screen-title">HEBAT SEKALI!</h2><p class="screen-subtitle">Kamu sudah belajar tentang tubuhmu.</p><div class="reward-stars" id="rewardStars">☆☆☆☆☆</div><div class="choice-grid"><button class="module-action" data-go="0">Ulangi</button><a class="module-next" href="index.html">Kembali ke Peta</a></div></div></section><nav class="module-navigation"><button id="previousButton">← Kembali</button><div><div class="progress-dots" id="dots"></div><div class="screen-count" id="screenCount">Screen 1 dari 6</div></div><button class="next" id="nextButton">Berikutnya →</button></nav></main><div class="portrait-message">📱↔️<br>Putar perangkatmu ke landscape<br>untuk pengalaman terbaik.</div></div><script>(function(){const key='IPAS';const saved=JSON.parse(localStorage.getItem(key)||'{}');const state=saved.bab1||{steps:[],stars:0};state.steps=Array.isArray(state.steps)?state.steps:[];let current=0;let selected=[];let first=null;let pairs=0;const screens=[...document.querySelectorAll('.screen')];const save=()=>{const all=JSON.parse(localStorage.getItem(key)||'{}');all.bab1=state;localStorage.setItem(key,JSON.stringify(all))};const complete=step=>{if(!state.steps.includes(step)){state.steps.push(step);state.stars=Math.min(5,state.stars+1);save()}update()};const update=()=>{starCount.textContent=state.stars;rewardStars.textContent='★'.repeat(state.stars)+'☆'.repeat(5-state.stars)};const feedback=(id,text,kind)=>{const e=document.getElementById(id);e.textContent=text;e.className='feedback '+(kind||'')};const render=()=>{screens.forEach((s,i)=>s.classList.toggle('active',i===current));document.querySelectorAll('.progress-dot').forEach((d,i)=>d.classList.toggle('active',i===current));screenCount.textContent='Screen '+(current+1)+' dari 6';previousButton.disabled=current===0;nextButton.disabled=current===5;update()};for(let i=0;i<6;i++){const d=document.createElement('button');d.className='progress-dot';d.title='Screen '+(i+1);d.onclick=()=>{current=i;render()};dots.appendChild(d)};document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{current=+b.dataset.go;render()});previousButton.onclick=()=>{if(current>0){current--;render()}};nextButton.onclick=()=>{if(current<5){current++;render()}};document.querySelectorAll('[data-part]').forEach(b=>b.onclick=()=>{bodyInfo.innerHTML='<strong>'+b.dataset.part+'</strong><br>'+b.dataset.info;complete('materi')});document.querySelectorAll('.observe').forEach(b=>b.onclick=()=>{if(!selected.includes(b.dataset.observe)){selected.push(b.dataset.observe);b.classList.add('selected')}feedback('observeFeedback','Terpilih: '+selected.length+' / 3 ⭐',selected.length===3?'good':'');if(selected.length===3)complete('observe')});document.querySelectorAll('.match-card').forEach(b=>b.onclick=()=>{if(b.classList.contains('matched'))return;if(!first){first=b;b.classList.add('selected');return}b.classList.add('selected');if(first!==b&&first.dataset.match===b.dataset.match){first.classList.remove('selected');first.classList.add('matched');b.classList.add('matched');first=null;pairs++;feedback('matchFeedback','Pasangan benar: '+pairs+' / 4',pairs===4?'good':'');if(pairs===4)complete('match')}else{feedback('matchFeedback','😊 Belum cocok. Coba lagi.','try');const old=first;setTimeout(()=>{old.classList.remove('selected');b.classList.remove('selected');first=null},350)}});document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{const ok=b.dataset.answer==='true';document.querySelectorAll('[data-answer]').forEach(x=>{x.disabled=true;if(x.dataset.answer==='true')x.classList.add('correct')});b.classList.add(ok?'correct':'wrong');feedback('quizFeedback',ok?'🎉 BENAR! Mata digunakan untuk melihat.':'💡 Coba lagi! Mata digunakan untuk melihat.',ok?'good':'try');if(ok)complete('quiz')});const check=()=>{console.assert(document.documentElement.scrollWidth<=document.documentElement.clientWidth,'ERROR: Horizontal overflow detected');console.assert(document.documentElement.scrollHeight<=document.documentElement.clientHeight,'ERROR: Vertical overflow detected')};render();check();window.addEventListener('resize',check)})();</script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+  <title>
+   Bab 1 - Tubuhku Hebat
+  </title>
+  <link href="style.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div id="ipas-app">
+   <main class="embedded-content">
+    <div class="module-controls">
+     <a class="module-button" href="index.html">
+      ← Peta
+     </a>
+     <div class="module-title">
+      <strong>
+       🌟 BAB 1
+      </strong>
+      <span>
+       Tubuhku Hebat
+      </span>
+     </div>
+     <div class="module-stars">
+      ⭐
+      <span id="starCount">
+       0
+      </span>
+      /5
+     </div>
+    </div>
+    <section class="screen active" data-screen="0">
+     <div class="screen-inner">
+      <div class="module-character">
+       👦🏻
+      </div>
+      <h1 class="screen-title">
+       TUBUHKU HEBAT
+      </h1>
+      <p class="screen-subtitle">
+       Yuk kenali tubuh kita!
+      </p>
+      <button class="module-action" data-go="1">
+       Mulai 🚀
+      </button>
+     </div>
+    </section>
+    <section class="screen" data-screen="1">
+     <div class="screen-inner">
+      <h2 class="screen-title">
+       Kenali tubuhmu
+      </h2>
+      <p class="screen-subtitle">
+       Klik satu bagian tubuh untuk melihat kegunaannya.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card" data-info="Mata digunakan untuk melihat." data-part="Mata">
+        <span class="visual-icon">
+         👀
+        </span>
+        Mata
+       </button>
+       <button class="visual-card" data-info="Telinga digunakan untuk mendengar." data-part="Telinga">
+        <span class="visual-icon">
+         👂
+        </span>
+        Telinga
+       </button>
+       <button class="visual-card" data-info="Hidung digunakan untuk mencium bau." data-part="Hidung">
+        <span class="visual-icon">
+         👃
+        </span>
+        Hidung
+       </button>
+       <button class="visual-card" data-info="Mulut digunakan untuk makan dan berbicara." data-part="Mulut">
+        <span class="visual-icon">
+         👄
+        </span>
+        Mulut
+       </button>
+       <button class="visual-card" data-info="Tangan digunakan untuk memegang." data-part="Tangan">
+        <span class="visual-icon">
+         ✋
+        </span>
+        Tangan
+       </button>
+       <button class="visual-card" data-info="Kaki digunakan untuk berjalan." data-part="Kaki">
+        <span class="visual-icon">
+         🦶
+        </span>
+        Kaki
+       </button>
+      </div>
+      <div class="info-box" id="bodyInfo">
+       Pilih satu bagian tubuh.
+      </div>
+     </div>
+    </section>
+    <section class="screen" data-screen="2">
+     <div class="screen-inner">
+      <div class="module-character">
+       🔎
+      </div>
+      <h2 class="screen-title">
+       Ayo Mengamati
+      </h2>
+      <p class="screen-subtitle">
+       Cari dan pilih 3 bagian tubuh yang kamu punya.
+      </p>
+      <div class="visual-grid six">
+       <button class="visual-card observe" data-observe="mata">
+        <span class="visual-icon">
+         👀
+        </span>
+        Mata
+       </button>
+       <button class="visual-card observe" data-observe="telinga">
+        <span class="visual-icon">
+         👂
+        </span>
+        Telinga
+       </button>
+       <button class="visual-card observe" data-observe="hidung">
+        <span class="visual-icon">
+         👃
+        </span>
+        Hidung
+       </button>
+       <button class="visual-card observe" data-observe="mulut">
+        <span class="visual-icon">
+         👄
+        </span>
+        Mulut
+       </button>
+       <button class="visual-card observe" data-observe="tangan">
+        <span class="visual-icon">
+         ✋
+        </span>
+        Tangan
+       </button>
+       <button class="visual-card observe" data-observe="kaki">
+        <span class="visual-icon">
+         🦶
+        </span>
+        Kaki
+       </button>
+      </div>
+      <div class="feedback" id="observeFeedback">
+       Terpilih: 0 / 3 ⭐
+      </div>
+     </div>
+    </section>
+    <section class="screen" data-screen="3">
+     <div class="screen-inner">
+      <div class="module-character">
+       🧩
+      </div>
+      <h2 class="screen-title">
+       Pasangkan bagian tubuh
+      </h2>
+      <p class="screen-subtitle">
+       Klik gambar, lalu fungsi yang sesuai.
+      </p>
+      <div class="match-grid">
+       <button class="match-card" data-match="lihat">
+        👀 Mata
+       </button>
+       <button class="match-card" data-match="dengar">
+        Mendengar
+       </button>
+       <button class="match-card" data-match="dengar">
+        👂 Telinga
+       </button>
+       <button class="match-card" data-match="cium">
+        Mencium
+       </button>
+       <button class="match-card" data-match="cium">
+        👃 Hidung
+       </button>
+       <button class="match-card" data-match="pegang">
+        Memegang
+       </button>
+       <button class="match-card" data-match="pegang">
+        ✋ Tangan
+       </button>
+       <button class="match-card" data-match="lihat">
+        Melihat
+       </button>
+      </div>
+      <div class="feedback" id="matchFeedback">
+       Pasangan benar: 0 / 4
+      </div>
+     </div>
+    </section>
+    <section class="screen" data-screen="4">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎯
+      </div>
+      <div class="screen-subtitle">
+       KUIS
+      </div>
+      <div class="quiz-visual">
+       👀
+      </div>
+      <h2 class="screen-title">
+       Bagian tubuh untuk melihat adalah...
+      </h2>
+      <div class="quiz-grid">
+       <button class="quiz-option" data-answer="false">
+        👂
+        <br/>
+        Telinga
+       </button>
+       <button class="quiz-option" data-answer="true">
+        👀
+        <br/>
+        Mata
+       </button>
+       <button class="quiz-option" data-answer="false">
+        👃
+        <br/>
+        Hidung
+       </button>
+       <button class="quiz-option" data-answer="false">
+        🦶
+        <br/>
+        Kaki
+       </button>
+      </div>
+      <div class="feedback" id="quizFeedback">
+      </div>
+     </div>
+    </section>
+    <section class="screen" data-screen="5">
+     <div class="screen-inner">
+      <div class="module-character">
+       🎉
+      </div>
+      <h2 class="screen-title">
+       HEBAT SEKALI!
+      </h2>
+      <p class="screen-subtitle">
+       Kamu sudah belajar tentang tubuhmu.
+      </p>
+      <div class="reward-stars" id="rewardStars">
+       ☆☆☆☆☆
+      </div>
+      <div class="choice-grid">
+       <button class="module-action" data-go="0">
+        Ulangi
+       </button>
+       <a class="module-next" href="index.html">
+        Kembali ke Peta
+       </a>
+      </div>
+     </div>
+    </section>
+    <nav class="module-navigation">
+     <button id="previousButton">
+      ← Kembali
+     </button>
+     <div>
+      <div class="progress-dots" id="dots">
+      </div>
+      <div class="screen-count" id="screenCount">
+       Screen 1 dari 6
+      </div>
+     </div>
+     <button class="next" id="nextButton">
+      Berikutnya →
+     </button>
+    </nav>
+   </main>
+   <div class="portrait-message">
+    📱↔️
+    <br/>
+    Putar perangkatmu ke landscape
+    <br/>
+    untuk pengalaman terbaik.
+   </div>
+  </div>
+  <script src="bab1-script.js"></script>
+ </body>
+</html>
+
