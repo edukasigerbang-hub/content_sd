@@ -10,6 +10,7 @@
   const completedLevels = content.chapters.reduce((total, chapter) => total + chapter.subs.filter((_, index) => localStorage.getItem(`grade1MathDone:${chapter.id}:${index}`) === 'true').length, 0);
   const firstOpen = content.chapters.find((chapter) => chapter.subs.some((_, index) => localStorage.getItem(`grade1MathDone:${chapter.id}:${index}`) !== 'true')) || content.chapters[0];
   const firstOpenIndex = firstOpen.subs.findIndex((_, index) => localStorage.getItem(`grade1MathDone:${firstOpen.id}:${index}`) !== 'true');
+  const activeChapterIndex = completedLevels < totalLevels ? content.chapters.indexOf(firstOpen) : -1;
   const worlds = ['DUNIA ANGKA', 'DUNIA BERHITUNG', 'DUNIA BERHITUNG', 'DUNIA BENTUK', 'DUNIA ANGKA'];
   map.innerHTML = `<section class="grade1-math-hero"><div class="grade1-math-kicker">MATEMATIKA · KELAS 1 · SEMESTER 1</div><h1>Petualangan<br>Matematika</h1><p>Ikuti jejak angka, bentuk, dan hitungan bersama Kiko.</p><a class="primary-cta" href="bab${firstOpen.number}.html?sub=${firstOpenIndex + 1}">▶ ${completedLevels ? 'Lanjutkan petualangan' : 'Mulai bermain'}</a></section><section class="adventure-board" aria-label="Peta petualangan Matematika"><div class="board-heading"><span>PETA PETUALANGAN</span><strong>${completedLevels}/${totalLevels} level selesai</strong></div><div class="adventure-path">${content.chapters.map((chapter, index) => { const done = chapter.subs.filter((_, subIndex) => localStorage.getItem(`grade1MathDone:${chapter.id}:${subIndex}`) === 'true').length; const isCurrent = done < chapter.subs.length && content.chapters.slice(0, index).every((previous) => previous.subs.every((_, subIndex) => localStorage.getItem(`grade1MathDone:${previous.id}:${subIndex}`) === 'true')); return `<a class="adventure-node chapter-${chapter.color} ${isCurrent ? 'is-current' : ''}" href="bab${chapter.number}.html" aria-label="${worlds[index]}: ${chapter.title}"><span class="node-icon">${chapter.icon}</span><span class="node-number">0${chapter.number}</span><strong>${worlds[index]}</strong><small>${done}/${chapter.subs.length} selesai</small></a>${index < content.chapters.length - 1 ? '<span class="path-link" aria-hidden="true">→</span>' : ''}`; }).join('')}</div></section><section class="grade1-math-chapters" aria-label="Level Matematika">${content.chapters.map((chapter, index) => { const done = chapter.subs.filter((_, subIndex) => localStorage.getItem(`grade1MathDone:${chapter.id}:${subIndex}`) === 'true').length; return `<a class="grade1-math-chapter chapter-${chapter.color}" href="bab${chapter.number}.html"><span class="chapter-icon">${chapter.icon}</span><span><b>LEVEL 0${chapter.number}</b><strong>${chapter.title}</strong><small>${worlds[index]} · ⭐ ${done}/${chapter.subs.length}</small></span><span class="chapter-arrow">→</span></a>`; }).join('')}</section>`;
   const worldLabels = ['ANGKA', 'BERHITUNG', 'BERHITUNG', 'BENTUK', 'ANGKA'];
@@ -33,8 +34,14 @@
     const previousChapter = content.chapters[index - 1];
     const unlocked = index === 0 || previousChapter.subs.every((_, subIndex) => localStorage.getItem(`grade1MathDone:${previousChapter.id}:${subIndex}`) === 'true');
     const cardContainer = document.createElement('div');
-    cardContainer.className = `${card.className} ${unlocked ? 'is-unlocked' : 'is-locked'}`;
+    const completed = chapter.subs.every((_, subIndex) => localStorage.getItem(`grade1MathDone:${chapter.id}:${subIndex}`) === 'true');
+    const isCurrent = index === activeChapterIndex;
+    cardContainer.className = `${card.className} ${unlocked ? 'is-unlocked' : 'is-locked'} ${completed ? 'is-done' : ''} ${isCurrent ? 'is-current' : ''}`;
     cardContainer.innerHTML = card.innerHTML;
+    const status = document.createElement('em');
+    status.className = 'level-status';
+    status.textContent = completed ? '✓ SELESAI' : isCurrent ? '⭐ MAIN SEKARANG' : unlocked ? '▶ TERSEDIA' : '🔒 BELUM TERBUKA';
+    cardContainer.querySelector('b').insertAdjacentElement('afterend', status);
     const action = cardContainer.querySelector('.chapter-arrow');
     action.textContent = '';
     if (unlocked) {
@@ -54,5 +61,6 @@
 
   const primaryCta = map.querySelector('.primary-cta');
   primaryCta.textContent = completedLevels ? '▶ LANJUTKAN' : '▶ MULAI PETUALANGAN';
-  map.querySelector('.board-heading strong').textContent = `⭐ ${completedLevels} dari ${totalLevels} petualangan`;
+  primaryCta.setAttribute('aria-label', activeChapterIndex >= 0 ? `Lanjut ke Level 0${firstOpen.number}: ${firstOpen.title}` : 'Semua petualangan selesai');
+  map.querySelector('.board-heading strong').textContent = `⭐ ${completedLevels} / ${totalLevels} · PETUALANGAN SELESAI`;
 })();
