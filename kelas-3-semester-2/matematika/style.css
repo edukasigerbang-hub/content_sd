@@ -21,7 +21,7 @@ body.grade1-math:has(#chapter-app) .grade1-math-header { display: flex !importan
 body.grade1-math:has(#chapter-app) .chapter-title-board { margin-top: -22px !important; }
 body.grade1-math:has(#chapter-app) #chapter-app { position: relative; top: -120px; }
 body.grade1-math:has(.grade1-math-activity-card) #chapter-app { top: 100px !important; }
-.chapter-progress-floating { position: fixed; top: 50px; right: 40px; z-index: 20; display: flex; align-items: center; justify-content: center; min-width: 330px; min-height: 123px; padding: 24px 40px; color: #3d2a20; text-align: center; background: url('text-board.png') center / 100% 100% no-repeat; }
+.chapter-progress-floating { position: fixed; top: 50px; right: 40px; z-index: 20; display: flex; align-items: center; justify-content: center; min-width: 330px; min-height: 123px; padding: 24px 40px; color: #3d2a20; text-align: center; background: url('images/text-board.png') center / 100% 100% no-repeat; }
 .chapter-progress-floating strong { font-size: 1.25rem; font-weight: 900; line-height: 1; text-shadow: 0 1px 0 #fff2c7; }
 .chapter-progress-floating span { color: #5b321d; font-size: .72rem; font-weight: 900; letter-spacing: .12em; text-shadow: 0 1px 0 #ffe9b5; }.chapter-progress-floating strong { display: flex; gap: 3px; color: #6f3f19; font-size: 1.35rem; line-height: 1; text-shadow: 0 1px 0 #fff2c7; }.chapter-progress-floating small { color: #3d2a20; font-size: .82rem; font-weight: 900; text-shadow: 0 1px 0 #fff2c7; }
 @media (max-width: 680px) { .chapter-progress-floating { top: 50px; right: 12px; min-width: min(270px, calc(100vw - 24px)); min-height: 102px; padding: 24px 30px; }.chapter-progress-floating strong { font-size: 1rem; } }
@@ -30,7 +30,7 @@ body.grade1-math:has(.grade1-math-activity-card) #chapter-app { top: 100px !impo
 .chapter-title-board p { margin-top: 64px !important; color: #3e3028; font-weight: 800; text-shadow: 0 1px 0 #fff4d8; }
 .chapter-title-board > .grade1-math-kicker, .chapter-title-board > h1, .chapter-title-board > p { position: relative; top: 35px; }
 /* Chapter title sits outside the content board */
-.chapter-title-board { max-width: 760px; min-height: 178px; margin: 50px auto 18px; padding: 42px clamp(42px, 8vw, 100px) 32px; text-align: center; background: url('papan judul.png') center / 100% 100% no-repeat; }
+.chapter-title-board { max-width: 760px; min-height: 178px; margin: 50px auto 18px; padding: 42px clamp(42px, 8vw, 100px) 32px; text-align: center; background: url('images/papan judul.png') center / 100% 100% no-repeat; }
 .chapter-title-board h1 { margin: 4px 0 8px; font-family: 'Nunito', sans-serif; font-size: clamp(1.8rem, 3.4vw, 2.8rem); line-height: 1.05; letter-spacing: 0; }
 .chapter-title-board p { max-width: 620px; margin: 0 auto; color: #766b61; font-size: .98rem; line-height: 1.4; }
 @media (max-width: 680px) { .chapter-title-board { min-height: 220px; margin: 50px 0 14px; padding: 32px 42px 24px; }.chapter-title-board .grade1-math-kicker { font-size: .8rem; }.chapter-title-board h1 { margin-top: 12px !important; font-size: clamp(1.01rem, 4.5vw, 1.5rem) !important; }.chapter-title-board p { margin-top: 52px !important; font-size: .88rem; } }
@@ -46,7 +46,7 @@ body.grade1-math:has(.grade1-math-activity-card) #chapter-app { top: 100px !impo
 .level-heading .grade1-math-back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 6px; padding: 9px 13px; border: 2px solid #eadfce; border-radius: 12px; background: #fffaf2d9; }
 .level-heading-copy h1 { margin: 5px 0 7px; font-size: clamp(2rem, 4vw, 3.2rem); }
 .level-heading-copy p { line-height: 1.4; }
-.level-heading-copy { min-height: 178px; padding: 42px clamp(42px, 8vw, 100px) 32px; background: url('papan judul.png') center / 100% 100% no-repeat; }
+.level-heading-copy { min-height: 178px; padding: 42px clamp(42px, 8vw, 100px) 32px; background: url('images/papan judul.png') center / 100% 100% no-repeat; }
 .level-progress { display: grid; gap: 4px; min-width: 170px; padding: 13px 15px; border: 2px solid #f0ce76; border-radius: 16px; background: #fff5cf; box-shadow: 0 4px 0 #e0b85e; }
 .level-progress span { color: #9a741e; font-size: .68rem; font-weight: 800; letter-spacing: .12em; }.level-progress strong { display: flex; gap: 3px; font-size: 1.2rem; }.level-progress small { color: #766b61; font-size: .78rem; font-weight: 800; }
 .grade1-math-mission-zone { max-width: 820px; margin: 0 auto; padding: 18px 0 12px; }.grade1-math-mission-zone .grade1-math-mascot { margin: 0 0 14px; }.grade1-math-mission-zone .grade1-math-speech { padding: 11px 16px; }
@@ -66,7 +66,7 @@ body.grade1-math:has(.grade1-math-activity-card) #chapter-app { top: 100px !impo
 .grade1-math-hero p { max-width: 480px; margin: 0 0 22px; color: #4f463f; font-size: 1.08rem; font-weight: 800; }
 .primary-cta { display: inline-flex; align-items: center; min-height: 56px; padding: 0 24px; border: 3px solid #d96a58; border-radius: 18px; color: white; background: var(--coral); box-shadow: 0 5px 0 #c95b4a; font-size: 1.05rem; font-weight: 800; text-decoration: none; transition: transform .16s ease, box-shadow .16s ease; }
 .primary-cta:hover, .primary-cta:focus-visible { transform: translateY(2px); box-shadow: 0 3px 0 #c95b4a; }
-.adventure-board { max-width: 100%; aspect-ratio: 2172 / 620; margin: 8px 0 28px; padding: 16px clamp(16px, 4vw, 34px) 18px; border: 0; border-radius: 26px; background: url('board-peta.png') center / 100% 100% no-repeat; box-shadow: none; }
+.adventure-board { max-width: 100%; aspect-ratio: 2172 / 620; margin: 8px 0 28px; padding: 16px clamp(16px, 4vw, 34px) 18px; border: 0; border-radius: 26px; background: url('images/board-peta.png') center / 100% 100% no-repeat; box-shadow: none; }
 .board-heading { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 20px; color: #7b4a2f; font-size: .78rem; font-weight: 800; letter-spacing: .12em; }
 .board-heading strong { color: #6a573f; letter-spacing: 0; }
 .adventure-path { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
@@ -121,8 +121,8 @@ body.grade1-math:has(#math-map) .grade1-math-chapter.is-locked .level-status { c
 :root { --ink: #243447; --paper: #fffaf2; --coral: #ff806d; --sun: #f6bd45; --leaf: #69b889; --sky: #5db6d5; --violet: #9a86d8; --line: #eadfce; }
 * { box-sizing: border-box; }
 body.grade1-math { margin: 0; min-height: 100vh; color: var(--ink); background: #f6eee1 center / cover fixed no-repeat; font-family: 'Nunito', sans-serif; }
-body.grade1-math:has(#math-map) { background-image: url('bg-home.png'); }
-body.grade1-math:has(#chapter-app) { background-image: url('bg-bab.png'); }
+body.grade1-math:has(#math-map) { background-image: url('images/bg-home.png'); }
+body.grade1-math:has(#chapter-app) { background-image: url('images/bg-bab.png'); }
 .grade1-math-shell { width: min(100%, 1080px); min-height: 100vh; margin: auto; padding: 18px 24px 28px; background: transparent; overflow: hidden; }
 .grade1-math-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--line); padding-bottom: 14px; }
 .grade1-math-brand { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 10px; border-radius: 11px; color: #fff; background: #2f7188; font: 700 1.25rem 'Baloo 2', cursive; text-decoration: none; letter-spacing: .02em; }

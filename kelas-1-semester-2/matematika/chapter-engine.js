@@ -26,7 +26,7 @@
     const allDone = completed === chapter.subs.length;
     const progressStars = chapter.subs.map((_, index) => `<span class="chapter-star ${index < completed ? 'is-earned' : ''}" aria-hidden="true">${index < completed ? '⭐' : '☆'}</span>`).join('');
     document.querySelector('.chapter-map-button')?.remove();
-    document.body.insertAdjacentHTML('afterbegin', '<a class="chapter-map-button" href="index.html" aria-label="Kembali ke peta petualangan"><img src="btn-peta.png" alt="Peta"></a>');
+    document.body.insertAdjacentHTML('afterbegin', '<a class="chapter-map-button" href="index.html" aria-label="Kembali ke peta petualangan"><img src="images/btn-peta.png" alt="Peta"></a>');
     document.querySelector('.chapter-title-board')?.remove();
     document.querySelector('.grade1-math-header').insertAdjacentHTML('afterend', `<section class="chapter-title-board"><div class="grade1-math-kicker">LEVEL 0${chapter.number}</div><h1>${chapter.title}</h1><p>${chapter.goal}</p></section>`);
     document.querySelector('.chapter-progress-floating')?.remove();
