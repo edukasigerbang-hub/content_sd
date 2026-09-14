@@ -1,0 +1,25 @@
+(() => {
+  const content = window.MATH_CONTENT;
+  const map = document.querySelector('#math-map');
+  const prefix = content.storageKey;
+  let stars = Number(localStorage.getItem(`${prefix}:stars`) || 0);
+  if (!Number.isFinite(stars) || stars < 0) stars = 0;
+  localStorage.setItem(`${prefix}:stars`, String(stars));
+  document.querySelector('#starCount').textContent = stars;
+  const done = (chapter, index) => localStorage.getItem(`${prefix}:done:${chapter.id}:${index}`) === 'true';
+  const totalLevels = content.chapters.reduce((total, chapter) => total + chapter.subs.length, 0);
+  const completedLevels = content.chapters.reduce((total, chapter) => total + chapter.subs.filter((_, index) => done(chapter, index)).length, 0);
+  const firstOpen = content.chapters.find((chapter) => chapter.subs.some((_, index) => !done(chapter, index))) || content.chapters[0];
+  const firstOpenIndex = Math.max(0, firstOpen.subs.findIndex((_, index) => !done(firstOpen, index)));
+  const worlds = content.chapters.map((chapter) => chapter.world);
+  map.innerHTML = `<section class="grade1-math-hero"><div class="grade1-math-kicker">${content.title.toUpperCase()}</div><h1>Petualangan<br>Matematika</h1><p>${content.tagline}</p><a class="primary-cta" href="bab${firstOpen.number}.html?sub=${firstOpenIndex + 1}">▶ ${completedLevels ? 'Lanjutkan petualangan' : 'Mulai bermain'}</a></section><section class="adventure-board" aria-label="Peta petualangan Matematika"><div class="board-heading"><span>PETA PETUALANGAN</span><strong>⭐ ${completedLevels} / ${totalLevels} · MISI SELESAI</strong></div><div class="adventure-path">${content.chapters.map((chapter, index) => { const chapterDone = chapter.subs.filter((_, subIndex) => done(chapter, subIndex)).length; const unlocked = index === 0 || content.chapters[index - 1].subs.every((_, subIndex) => done(content.chapters[index - 1], subIndex)); return `<a class="adventure-node chapter-${chapter.color} ${chapterDone === chapter.subs.length ? 'is-complete' : unlocked ? 'is-current' : 'is-locked'}" href="bab${chapter.number}.html" aria-label="${worlds[index]}: ${chapter.title}"><span class="node-icon">${chapter.icon}</span><span class="node-number">0${chapter.number}</span><strong>${worlds[index]}</strong><small>${chapterDone}/${chapter.subs.length} selesai</small></a>${index < content.chapters.length - 1 ? '<span class="path-link" aria-hidden="true">→</span>' : ''}`; }).join('')}</div></section><section class="grade1-math-chapters" aria-label="Level Matematika">${content.chapters.map((chapter, index) => { const chapterDone = chapter.subs.filter((_, subIndex) => done(chapter, subIndex)).length; const unlocked = index === 0 || content.chapters[index - 1].subs.every((_, subIndex) => done(content.chapters[index - 1], subIndex)); return `<div class="grade1-math-chapter chapter-${chapter.color} ${unlocked ? 'is-unlocked' : 'is-locked'} ${chapterDone === chapter.subs.length ? 'is-done' : ''}"><span class="chapter-icon">${chapter.icon}</span><span><b>LEVEL 0${chapter.number}</b><strong>${chapter.title}</strong><small>${chapter.world} · ⭐ ${chapterDone}/${chapter.subs.length}</small></span>${unlocked ? `<a class="chapter-action" href="bab${chapter.number}.html">MAIN ▶</a>` : '<span class="chapter-arrow is-locked">🔒 TERKUNCI</span>'}</div>`; }).join('')}</section>`;
+  const allChaptersDone = content.chapters.every((chapter) => chapter.subs.every((_, index) => done(chapter, index)));
+  if (allChaptersDone && content.finalChallenge) {
+    const continueButton = map.querySelector('.primary-cta');
+    continueButton.href = 'bab5.html?final=1';
+    continueButton.textContent = '🏆 Tantangan akhir';
+  }
+  if (allChaptersDone && content.finalChallenge) {
+    map.insertAdjacentHTML('beforeend', `<section class="final-challenge-entry" aria-label="Tantangan akhir semester"><strong>🏆 ${content.finalChallenge.title}</strong><span>${content.finalChallenge.intro}</span><a class="primary-cta" href="bab5.html?final=1">Mulai tantangan akhir</a></section>`);
+  }
+})();
