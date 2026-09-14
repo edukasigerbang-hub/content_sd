@@ -2,6 +2,7 @@
 body.grade1-math:has(#chapter-app) .grade1-math-header { display: none !important; }
 body.grade1-math:has(#chapter-app) .chapter-title-board { margin-top: -22px !important; }
 body.grade1-math:has(#chapter-app) #chapter-app { position: relative; top: -120px; }
+body.grade1-math:has(.grade1-math-activity-card) #chapter-app { top: 0; }
 .chapter-progress-floating { position: fixed; top: 50px; right: 40px; z-index: 20; display: grid; gap: 4px; min-width: 170px; padding: 13px 15px; border: 2px solid #f0ce76; border-radius: 16px; color: #7f5d18; background: #fff5cf; box-shadow: 0 4px 0 #e0b85e; }
 .chapter-progress-floating span { color: #9a741e; font-size: .68rem; font-weight: 800; letter-spacing: .12em; }.chapter-progress-floating strong { display: flex; gap: 3px; font-size: 1.2rem; }.chapter-progress-floating small { color: #766b61; font-size: .78rem; font-weight: 800; }
 @media (max-width: 680px) { .chapter-progress-floating { top: 50px; right: 12px; min-width: 145px; padding: 10px 12px; }.chapter-progress-floating strong { font-size: 1rem; }.chapter-progress-floating small { font-size: .7rem; } }
