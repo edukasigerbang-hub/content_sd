@@ -17,10 +17,10 @@
 .grade1-math-subject.is-done { border-color: #8ac79a !important; background: #f1fff0 !important; }.grade1-math-subject.is-done .subject-number { background: var(--leaf) !important; }
 @media (max-width: 680px) { .grade1-math-subject { grid-template-columns: 48px minmax(0, 1fr) !important; min-height: 170px !important; padding: 18px !important; }.grade1-math-subject .subject-number { width: 46px !important; height: 46px !important; }.grade1-math-subject .subject-play { grid-column: 2; justify-self: start; min-height: 46px !important; }.grade1-math-subject .mission-copy { padding-right: 0 !important; }.mission-mini-visual { font-size: 1rem; } }
 /* Chapter pages use the title board as the top identity */
-body.grade1-math:has(#chapter-app) .grade1-math-header { display: none !important; }
+body.grade1-math:has(#chapter-app) .grade1-math-header { display: flex !important; }
 body.grade1-math:has(#chapter-app) .chapter-title-board { margin-top: -22px !important; }
 body.grade1-math:has(#chapter-app) #chapter-app { position: relative; top: -120px; }
-body.grade1-math:has(.grade1-math-activity-card) #chapter-app { top: 150px !important; }
+body.grade1-math:has(.grade1-math-activity-card) #chapter-app { top: 100px !important; }
 .chapter-progress-floating { position: fixed; top: 50px; right: 40px; z-index: 20; display: flex; align-items: center; justify-content: center; min-width: 330px; min-height: 123px; padding: 24px 40px; color: #3d2a20; text-align: center; background: url('images/text-board.png') center / 100% 100% no-repeat; }
 .chapter-progress-floating strong { font-size: 1.25rem; font-weight: 900; line-height: 1; text-shadow: 0 1px 0 #fff2c7; }
 .chapter-progress-floating span { color: #5b321d; font-size: .72rem; font-weight: 900; letter-spacing: .12em; text-shadow: 0 1px 0 #ffe9b5; }.chapter-progress-floating strong { display: flex; gap: 3px; color: #6f3f19; font-size: 1.35rem; line-height: 1; text-shadow: 0 1px 0 #fff2c7; }.chapter-progress-floating small { color: #3d2a20; font-size: .82rem; font-weight: 900; text-shadow: 0 1px 0 #fff2c7; }
@@ -89,12 +89,16 @@ body.grade1-math:has(#math-map) .grade1-math-brand { color: #fff; background: #2
 body.grade1-math:has(#math-map) .grade1-math-semester { margin-left: -2px; color: #55412b; background: #ffe39a; font-size: .7rem; letter-spacing: .06em; }
 body.grade1-math:has(#math-map) .grade1-math-semester::before { content: '|'; margin-right: 8px; color: #d96a58; font-size: .95rem; font-weight: 900; }
 body.grade1-math:has(#math-map) .grade1-math-hero h1 { margin: 5px 0 8px; font-size: clamp(1.7rem, 3.6vw, 3rem); white-space: nowrap; }
+body.grade1-math:has(#math-map) .grade1-math-hero h1 { display: inline-block; padding: 4px 12px; border-radius: 12px; background: #fffaf2d9; }
+body.grade1-math:has(#math-map) .grade1-math-hero p { display: inline-block; padding: 5px 10px; border-radius: 9px; background: #fffaf2c4; }
 body.grade1-math:has(#math-map) .grade1-math-hero .grade1-math-kicker { display: none; }
 body.grade1-math:has(#math-map) .grade1-math-hero h1 br { display: none; }
 body.grade1-math:has(#math-map) .grade1-math-hero p { margin-bottom: 16px; }
 body.grade1-math:has(#math-map) .primary-cta { min-height: 52px; padding-inline: 22px; box-shadow: 0 4px 0 #c95b4a; }
 body.grade1-math:has(#math-map) .grade1-math-shell { overflow: visible !important; }
 body.grade1-math:has(#math-map) .adventure-board { width: calc(100% + clamp(80px, 12vw, 220px)); max-width: none; margin: 4px 0 18px calc(clamp(80px, 12vw, 220px) / -2); padding-top: 18px; background-size: 100% 100%; }
+body.grade1-math:has(#math-map) .adventure-board .board-heading { position: relative; top: 50px; justify-content: center; align-items: center; flex-direction: row; gap: 10px; text-align: center; white-space: nowrap; }
+body.grade1-math:has(#math-map) .adventure-board .board-heading span::after { content: '|'; margin-left: 10px; color: #b77b4d; }
 body.grade1-math:has(#math-map) .adventure-board .adventure-path { padding-inline: clamp(42px, 6vw, 88px); }
 body.grade1-math:has(#math-map) .adventure-board .adventure-node,
 body.grade1-math:has(#math-map) .adventure-board .path-link { top: 80px; position: relative; }
@@ -111,6 +115,9 @@ body.grade1-math:has(#math-map) .grade1-math-chapter.is-locked .level-status { c
 @media (max-width: 680px) { body.grade1-math:has(#math-map) .grade1-math-hero { padding: 20px 12px 18px; } body.grade1-math:has(#math-map) .grade1-math-header { gap: 4px; } body.grade1-math:has(#math-map) .grade1-math-semester { display: inline-flex; flex: 1; min-width: 0; padding-inline: 7px; font-size: .57rem; letter-spacing: .02em; white-space: nowrap; } body.grade1-math:has(#math-map) .grade1-math-semester::before { margin-right: 5px; } body.grade1-math:has(#math-map) .grade1-math-score { min-width: 58px; padding-inline: 7px; } body.grade1-math:has(#math-map) .grade1-math-hero h1 { font-size: clamp(1.45rem, 8vw, 2.35rem); } body.grade1-math:has(#math-map) .adventure-board { width: 100%; max-width: 100%; margin-left: 0; background-size: contain; } .grade1-math-guide { margin-bottom: 12px; padding-inline: 2px; } .grade1-math-guide .grade1-math-speech { flex: 1; } }
 @media (orientation: landscape) and (max-height: 560px) { body.grade1-math:has(#math-map) .grade1-math-hero { padding-block: 14px; } body.grade1-math:has(#math-map) .grade1-math-hero h1 { font-size: clamp(2rem, 7vh, 3.3rem); } }
 @media (max-width: 680px) { body.grade1-math:has(#math-map) .adventure-board .adventure-path { padding-inline: 8px; } }
+@media (max-width: 680px) { body.grade1-math:has(#math-map) .adventure-board .board-heading { gap: 5px; font-size: .62rem; letter-spacing: .04em; } body.grade1-math:has(#math-map) .adventure-board .board-heading span::after { margin-left: 5px; } }
+@media (max-width: 680px) { body.grade1-math .grade1-math-semester { display: inline-flex; min-width: 0; padding: 6px 7px; font-size: .57rem; letter-spacing: .02em; white-space: nowrap; } body.grade1-math .grade1-math-brand { font-size: 1rem; } }
+.grade1-math-activity-head { gap: 18px; }
 
 :root { --ink: #243447; --paper: #fffaf2; --coral: #ff806d; --sun: #f6bd45; --leaf: #69b889; --sky: #5db6d5; --violet: #9a86d8; --line: #eadfce; }
 * { box-sizing: border-box; }
@@ -119,8 +126,8 @@ body.grade1-math:has(#math-map) { background-image: url('images/bg-home.png'); }
 body.grade1-math:has(#chapter-app) { background-image: url('images/bg-bab.png'); }
 .grade1-math-shell { width: min(100%, 1080px); min-height: 100vh; margin: auto; padding: 18px 24px 28px; background: transparent; overflow: hidden; }
 .grade1-math-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 2px solid var(--line); padding-bottom: 14px; }
-.grade1-math-brand { color: var(--ink); font: 700 1.25rem 'Baloo 2', cursive; text-decoration: none; letter-spacing: .04em; }
-.grade1-math-semester { color: #8e8070; font-size: .76rem; font-weight: 800; letter-spacing: .12em; }
+.grade1-math-brand { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 10px; border-radius: 11px; color: #fff; background: #2f7188; font: 700 1.25rem 'Baloo 2', cursive; text-decoration: none; letter-spacing: .02em; }
+.grade1-math-semester { display: inline-flex; align-items: center; min-height: 36px; padding: 6px 10px; border-radius: 11px; color: #55412b; background: #ffe39a; font-size: .76rem; font-weight: 800; letter-spacing: .06em; }
 .grade1-math-semester i { color: var(--coral); font-style: normal; margin: 0 5px; }
 .grade1-math-score { min-width: 72px; padding: 8px 11px; border-radius: 16px; background: #fff2c9; color: #7f5d18; text-align: center; font-weight: 800; }
 .grade1-math-heading { max-width: 700px; padding: 54px 0 24px; }
