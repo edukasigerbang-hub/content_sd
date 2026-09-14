@@ -3,6 +3,7 @@
 .level-heading .grade1-math-back { display: inline-flex; align-items: center; min-height: 44px; margin-bottom: 6px; padding: 9px 13px; border: 2px solid #eadfce; border-radius: 12px; background: #fffaf2d9; }
 .level-heading-copy h1 { margin: 5px 0 7px; font-size: clamp(2rem, 4vw, 3.2rem); }
 .level-heading-copy p { line-height: 1.4; }
+.level-heading-copy { min-height: 178px; padding: 42px clamp(42px, 8vw, 100px) 32px; background: url('images/papan judul.png') center / 100% 100% no-repeat; }
 .level-progress { display: grid; gap: 4px; min-width: 170px; padding: 13px 15px; border: 2px solid #f0ce76; border-radius: 16px; background: #fff5cf; box-shadow: 0 4px 0 #e0b85e; }
 .level-progress span { color: #9a741e; font-size: .68rem; font-weight: 800; letter-spacing: .12em; }.level-progress strong { display: flex; gap: 3px; font-size: 1.2rem; }.level-progress small { color: #766b61; font-size: .78rem; font-weight: 800; }
 .grade1-math-mission-zone { max-width: 820px; margin: 0 auto; padding: 18px 0 12px; }.grade1-math-mission-zone .grade1-math-mascot { margin: 0 0 14px; }.grade1-math-mission-zone .grade1-math-speech { padding: 11px 16px; }
@@ -14,6 +15,7 @@
 @media (max-width: 680px) { .chapter-map-button { top: 10px; left: 12px; width: 150px; height: 60px; } }
 @media (max-width: 680px) { .level-heading { grid-template-columns: 1fr; gap: 12px; }.level-heading .grade1-math-back { margin-bottom: 0; }.level-progress { min-width: 0; justify-self: stretch; }.grade1-math-mission-zone { padding-top: 10px; }.grade1-math-subject { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }.subject-number { width: 46px; height: 46px; }.subject-play { grid-column: 2; justify-self: start; min-height: 44px; }.mission-copy { padding-right: 0; }.mission-reward { position: static; display: block; margin-top: 7px; }.grade1-math-subject { align-items: start; } }
 @media (max-width: 680px) { .level-heading { padding-top: 88px; }.level-heading .grade1-math-back { width: 150px; height: 60px; } }
+@media (max-width: 680px) { .level-heading-copy { min-height: 142px; padding: 32px 42px 24px; }.level-heading-copy h1 { font-size: clamp(1.7rem, 7vw, 2.5rem); } }
 /* Adventure map and level presentation */
 .grade1-math-activity-card h1.level-prompt { font-family: 'Nunito', sans-serif; font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: 0; }
 .grade1-math-hero { max-width: 760px; padding: 34px 22px 28px; border-radius: 24px; background: linear-gradient(90deg, #fffaf2dc, #fffaf280 72%, transparent); }
