@@ -8,7 +8,7 @@
   let activeIndex = -1;
   let answered = false;
 
-  const speak = (text) => window.Grade1MathSound.speak(text);
+  const playSound = (name) => window.Grade1MathSound.play(name);
   const updateStars = () => { starCount.textContent = Number.isFinite(stars) ? stars : 0; };
   const mascot = (message, mood = 'happy') => `<div class="grade1-math-mascot"><div class="grade1-math-bunny mood-${mood}" aria-label="Kiko si kelinci">🐰</div><div class="grade1-math-speech">${message}</div></div>`;
   const missionVisual = (activity, index) => {
@@ -47,10 +47,8 @@
     answered = false;
     const activity = sub.activity;
     const progressDots = chapter.subs.map((_, subIndex) => `<span class="progress-dot ${subIndex <= index ? 'is-active' : ''}" aria-hidden="true"></span>`).join('');
-    app.innerHTML = `<section class="grade1-math-activity-head"><a class="grade1-math-back" href="index.html" onclick="if (history.length > 1) { event.preventDefault(); history.back(); }">← HOME</a><span>LEVEL 0${chapter.number} · MISI ${index + 1}</span><span class="activity-stars">⭐ ${stars}</span></section><section class="grade1-math-activity-card">${mascot('Ayo, kita coba!', 'curious')}<div class="activity-label">KENAL · COBA · MAIN</div><div class="activity-visual">${visual(activity)}</div><h1 class="level-prompt activity-prompt">${activity.prompt}</h1><div class="answer-grid activity-answers">${activity.choices.map((choice) => `<button class="answer-button" type="button" data-answer="${choice}">${choice}</button>`).join('')}</div><div class="feedback" id="feedback" role="status"></div><div class="level-progress-dots" aria-label="Misi ${index + 1} dari ${chapter.subs.length}">${progressDots}</div><button class="listen-button activity-listen" id="listen" type="button">🔊 Dengarkan lagi</button></section>`;
+    app.innerHTML = `<section class="grade1-math-activity-head"><a class="grade1-math-back" href="index.html" onclick="if (history.length > 1) { event.preventDefault(); history.back(); }">⬅️ KEMBALI</a><span>LEVEL 0${chapter.number} · MISI ${index + 1}</span><span class="activity-stars">⭐ ${stars}</span></section><section class="grade1-math-activity-card">${mascot('Ayo, kita coba!', 'curious')}<div class="activity-label">KENAL · COBA · MAIN</div><div class="activity-visual">${visual(activity)}</div><h1 class="level-prompt activity-prompt">${activity.prompt}</h1><div class="answer-grid activity-answers">${activity.choices.map((choice) => `<button class="answer-button" type="button" data-answer="${choice}">${choice}</button>`).join('')}</div><div class="feedback" id="feedback" role="status"></div><div class="level-progress-dots" aria-label="Misi ${index + 1} dari ${chapter.subs.length}">${progressDots}</div></section>`;
     document.querySelectorAll('.answer-button').forEach((button) => button.addEventListener('click', () => answer(button, activity)));
-    document.querySelector('#listen').addEventListener('click', () => speak(activity.instruction || activity.prompt));
-    speak(activity.instruction || activity.prompt);
   };
   const answer = (button, activity) => {
     const feedback = document.querySelector('#feedback');
@@ -63,7 +61,7 @@
       const nextHref = activeIndex < chapter.subs.length - 1
         ? `bab${chapter.number}.html?sub=${activeIndex + 2}`
         : `bab${chapter.number}.html`;
-      const nextLabel = activeIndex < chapter.subs.length - 1 ? 'Subbab berikutnya' : 'Kembali ke BAB';
+      const nextLabel = activeIndex < chapter.subs.length - 1 ? 'Berikutnya' : 'Kembali ke BAB';
       feedback.innerHTML = `<strong>Hebat! Benar!</strong><span>${alreadyDone ? '⭐ Tantangan sudah selesai' : '⭐ +1 bintang'}</span><a class="next-button" href="${nextHref}">${nextLabel}</a>`;
       if (!alreadyDone) {
         stars += 1;
@@ -71,11 +69,11 @@
         localStorage.setItem(doneKey, 'true');
       }
       updateStars();
-      speak('Hebat! Benar!');
+      playSound('correct');
     } else {
       button.classList.add('is-try-again');
       feedback.innerHTML = '<strong>Coba lagi.</strong><span>Yuk lihat sekali lagi.</span>';
-      speak('Coba lagi.');
+      playSound('wrong');
       window.setTimeout(() => button.classList.remove('is-try-again'), 450);
     }
   };
