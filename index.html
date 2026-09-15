@@ -5,40 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rumah Belajar - Daftar Pelajaran</title>
   <style>
-    :root { --blue: #1355a4; --text: #17365d; --muted: #55708f; --line: #dbeaf5; }
+    :root { --navy: #132c4f; --blue: #1464a4; --cyan: #55c7d9; --sun: #ffc857; --text: #1c3553; --muted: #637892; --line: #d9e7ed; --paper: #fffdf7; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; font-family: "Trebuchet MS", Arial, sans-serif; color: var(--text); background: linear-gradient(180deg, #dff6ff, #fffdf4); }
-    main { width: min(1100px, calc(100% - 28px)); margin: auto; padding: 36px 0 48px; }
-    .hero { padding: 32px; border-radius: 28px; background: linear-gradient(135deg, #82d7f6, #fff0bd); box-shadow: 0 12px 28px #6fa8c733; }
-    h1 { margin: 0 0 10px; color: var(--blue); font-size: clamp(2rem, 5vw, 3.6rem); }
-    .hero p { max-width: 700px; margin: 0; font-size: 1.1rem; line-height: 1.6; font-weight: 700; }
-    h2 { margin: 28px 0 14px; color: var(--blue); }
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .card { display: block; padding: 22px; border-radius: 22px; background: #fff; border: 1px solid var(--line); box-shadow: 0 8px 20px #7189a52b; color: var(--text); transition: transform .2s, box-shadow .2s; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 26px #7189a544; }
-    .card strong { display: block; margin-bottom: 7px; color: var(--blue); font-size: 1.2rem; }
-    .card span { color: var(--muted); line-height: 1.45; }
-    .ipas { background: #e7f4ff; }
-    footer { margin-top: 26px; color: var(--muted); font-weight: 700; text-align: center; }
-    @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } main { padding-top: 22px; } }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; min-height: 100vh; font-family: "Avenir Next", "Trebuchet MS", sans-serif; color: var(--text); background: var(--paper); }
+    body::before { content: ""; position: fixed; inset: 0 0 auto; height: 430px; z-index: -1; background: radial-gradient(circle at 85% 12%, #fff3be 0 8%, transparent 23%), linear-gradient(135deg, #d8f5f5 0%, #edf8f7 55%, #fffdf7 100%); clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%); }
+    main { width: min(1160px, calc(100% - 36px)); margin: auto; padding: 28px 0 64px; }
+    .hero { position: relative; overflow: hidden; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: end; min-height: 270px; padding: 38px 42px; border-radius: 30px; color: #fff; background: linear-gradient(125deg, #123b62 0%, #14789a 58%, #4fc5c3 100%); box-shadow: 0 22px 42px #123b6233; }
+    .hero::after { content: "∑"; position: absolute; right: 36px; top: -38px; color: #ffffff25; font: 900 18rem/1 Georgia, serif; transform: rotate(12deg); pointer-events: none; }
+    .hero-copy, .hero-stats { position: relative; z-index: 1; }
+    .eyebrow { margin: 0 0 12px; color: #baf4e9; font-size: .76rem; font-weight: 900; letter-spacing: .18em; }
+    h1 { max-width: 700px; margin: 0 0 12px; color: #fff; font: 800 clamp(2.2rem, 5vw, 4.8rem)/.98 Georgia, serif; letter-spacing: 0; }
+    .hero p { max-width: 630px; margin: 0; color: #e8ffff; font-size: 1.08rem; line-height: 1.6; }
+    .hero-stats { display: grid; grid-template-columns: repeat(2, minmax(92px, 1fr)); gap: 10px; min-width: 220px; }
+    .hero-stats div { padding: 15px; border: 1px solid #ffffff3b; border-radius: 14px; background: #ffffff16; backdrop-filter: blur(8px); }
+    .hero-stats strong, .hero-stats span { display: block; }
+    .hero-stats strong { color: var(--sun); font-size: 1.65rem; }
+    .hero-stats span { margin-top: 3px; color: #d9ffff; font-size: .78rem; }
+    .jump-nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 34px; }
+    .jump-nav a { padding: 9px 13px; border: 1px solid #c9e3e4; border-radius: 99px; color: var(--blue); background: #ffffffbf; font-size: .78rem; font-weight: 800; text-decoration: none; transition: background .2s, transform .2s; }
+    .jump-nav a:hover { background: #fff; transform: translateY(-2px); }
+    .semester { scroll-margin-top: 20px; margin-top: 34px; }
+    h2 { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; color: var(--navy); font: 800 1.45rem/1.2 Georgia, serif; }
+    h2::before { content: ""; width: 8px; height: 30px; border-radius: 99px; background: var(--sun); box-shadow: 7px 0 0 #55c7d966; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .card { position: relative; display: block; min-height: 128px; padding: 21px 23px 20px 27px; overflow: hidden; border: 1px solid var(--line); border-radius: 18px; color: var(--text); background: #fff; box-shadow: 0 8px 18px #17365d12; text-decoration: none; transition: transform .2s, box-shadow .2s, border-color .2s; }
+    .card::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: var(--cyan); }
+    .card::after { content: "↗"; position: absolute; right: 20px; top: 18px; color: #8ca9ba; font-size: 1.25rem; transition: transform .2s, color .2s; }
+    .card:hover { border-color: #72c9d0; box-shadow: 0 14px 26px #17365d1d; transform: translateY(-4px); }
+    .card:hover::after { color: var(--blue); transform: translate(2px, -2px); }
+    .card strong { display: block; max-width: calc(100% - 28px); margin-bottom: 8px; color: var(--blue); font-size: 1.08rem; }
+    .card span { display: block; max-width: 94%; color: var(--muted); font-size: .92rem; line-height: 1.5; }
+    .card.ipas { background: linear-gradient(135deg, #f4fbff, #e8f7f6); }
+    .card.ipas::before { background: #2eb58a; }
+    .card[href="#"] { cursor: default; opacity: .72; background: #f4f6f5; }
+    .card[href="#"]::before { background: #b8c7c9; }
+    .card[href="#"]::after { content: "—"; }
+    footer { margin-top: 54px; padding: 19px 20px; border-top: 1px solid #d9e7ed; color: var(--muted); font-size: .9rem; font-weight: 700; text-align: center; }
+    @media (max-width: 720px) { main { width: min(100% - 24px, 600px); padding-top: 18px; } .hero { grid-template-columns: 1fr; min-height: 0; padding: 30px 25px; } .hero::after { right: -18px; top: 8px; font-size: 10rem; } .hero-stats { max-width: 285px; } .jump-nav { margin-bottom: 28px; } }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } h2 { font-size: 1.25rem; } .card { min-height: 112px; padding: 18px 20px 17px 23px; } .hero-stats { min-width: 0; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
   </style>
 </head>
 <body>
   <main>
     <section class="hero">
-      <h1>📚 Rumah Belajar</h1>
-      <p>Pilih kelas, semester, dan pelajaran yang ingin dipelajari.</p>
+      <div class="hero-copy">
+        <p class="eyebrow">PORTAL PEMBELAJARAN INTERAKTIF</p>
+        <h1>📚 Rumah Belajar</h1>
+        <p>Pilih kelas dan semester, lalu masuk ke ruang belajar yang paling sesuai untukmu.</p>
+      </div>
+      <div class="hero-stats" aria-label="Ringkasan isi portal">
+        <div><strong>6</strong><span>Jenjang kelas</span></div>
+        <div><strong>12</strong><span>Semester</span></div>
+      </div>
     </section>
 
-    <h2>Kelas 1 · Semester 1</h2>
+    <nav class="jump-nav" aria-label="Pintasan jenjang kelas">
+      <a href="#kelas-1">Kelas 1</a><a href="#kelas-2">Kelas 2</a><a href="#kelas-3">Kelas 3</a><a href="#kelas-4">Kelas 4</a><a href="#kelas-5">Kelas 5</a><a href="#kelas-6">Kelas 6</a>
+    </nav>
+
+    <section class="semester" id="kelas-1"><h2>Kelas 1 · Semester 1</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 1 Semester 1">
       <a class="card ipas" href="kelas-1-semester-1/ipas/index.html"><strong>🌱 IPAS</strong><span>Mengenal diri, lingkungan, tumbuhan, dan hewan melalui empat bab pembelajaran.</span></a>
       <a class="card" href="kelas-1-semester-1/matematika/index.html"><strong>🔢 Matematika</strong><span>Modul terpisah untuk kelas 1: angka, hitung, bentuk, dan permainan belajar sederhana.</span></a>
       <a class="card" href="#"><strong>📖 Bahasa Indonesia</strong><span>Konten pelajaran akan ditambahkan di foldernya.</span></a>
       <a class="card" href="#"><strong>🔢 Matematika</strong><span>Konten pelajaran akan ditambahkan di foldernya.</span></a>
-    </section>
+    </section></section>
 
-    <h2>Kelas 1 · Semester 2</h2>
+    <h2 id="kelas-1-semester-2">Kelas 1 · Semester 2</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 1 Semester 2">
       <a class="card ipas" href="kelas-1-semester-2/ipas/index.html"><strong>🌱 IPAS Semester 2</strong><span>Makhluk hidup, cuaca dan musim, benda di sekitar, serta menjaga lingkungan.</span></a>
       <a class="card" href="#"><strong>📖 Bahasa Indonesia</strong><span>Konten pelajaran akan ditambahkan di foldernya.</span></a>
@@ -46,57 +81,57 @@
       <a class="card" href="#"><strong>🎨 Seni Budaya</strong><span>Konten pelajaran akan ditambahkan di foldernya.</span></a>
     </section>
 
-    <h2>Kelas 2 · Semester 1</h2>
+    <h2 id="kelas-2">Kelas 2 · Semester 1</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 2 Semester 1">
       <a class="card" href="kelas-2-semester-1/matematika/index.html"><strong>🔢 Matematika</strong><span>Nilai tempat, operasi hitung, pengukuran, geometri, pola, dan soal cerita.</span></a>
     </section>
 
-    <h2>Kelas 2 · Semester 2</h2>
+    <h2 id="kelas-2-semester-2">Kelas 2 · Semester 2</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 2 Semester 2">
       <a class="card" href="kelas-2-semester-2/matematika/index.html"><strong>🔢 Matematika</strong><span>Operasi lebih kompleks, pecahan awal, bangun, data, dan pemecahan masalah.</span></a>
     </section>
 
-    <h2>Kelas 3 · Semester 1</h2>
+    <h2 id="kelas-3">Kelas 3 · Semester 1</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 3 Semester 1">
       <a class="card" href="kelas-3-semester-1/matematika/index.html"><strong>🔢 Matematika</strong><span>Bilangan sampai 10.000, strategi operasi, pecahan, pengukuran, dan data.</span></a>
     </section>
 
-    <h2>Kelas 3 · Semester 2</h2>
+    <h2 id="kelas-3-semester-2">Kelas 3 · Semester 2</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 3 Semester 2">
       <a class="card" href="kelas-3-semester-2/matematika/index.html"><strong>🔢 Matematika</strong><span>Problem solving, pola, pecahan senilai, keliling, luas awal, dan reasoning.</span></a>
     </section>
 
-    <h2>Kelas 4 · Semester 1</h2>
+    <h2 id="kelas-4">Kelas 4 · Semester 1</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 4 Semester 1">
       <a class="card" href="kelas-4-semester-1/matematika/index.html"><strong>∑ Math Lab</strong><span>Eksplorasi bilangan, operasi, pecahan, geometri, pengukuran, dan data melalui misi pemecahan masalah.</span></a>
       <a class="card ipas" href="kelas-4-semester-1/ipas/index.html"><strong>🧭 IPAS Expedition Mode</strong><span>Delapan misi untuk membuktikan konsep tumbuhan, energi, gaya, bunyi, cahaya, dan materi.</span></a>
     </section>
 
-    <h2>Kelas 4 · Semester 2</h2>
+    <h2 id="kelas-4-semester-2">Kelas 4 · Semester 2</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 4 Semester 2">
       <a class="card" href="kelas-4-semester-2/matematika/index.html"><strong>∑ Math Lab</strong><span>Bilangan besar, operasi dua langkah, pecahan, pengukuran, geometri, dan data dengan tantangan yang lebih mendalam.</span></a>
       <a class="card ipas" href="kelas-4-semester-2/ipas/index.html"><strong>🧭 IPAS Expedition Mode</strong><span>Delapan misi investigasi tentang ekosistem, lingkungan, Nusantara, budaya, dan ekonomi.</span></a>
     </section>
 
-    <h2>Kelas 5 · Semester 1</h2>
+    <h2 id="kelas-5">Kelas 5 · Semester 1</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 5 Semester 1">
       <a class="card" href="kelas-5-semester-1/matematika/index.html"><strong>∑ Math Lab</strong><span>Analisis bilangan besar, strategi operasi, pecahan, geometri, dan data dengan soal yang lebih menuntut pemikiran.</span></a>
       <a class="card ipas" href="kelas-5-semester-1/ipas/index.html"><strong>🧪 IPAS Experiment & Analysis</strong><span>Delapan misi untuk menguji dan menganalisis sistem tubuh, ekosistem, adaptasi, air, dan lingkungan.</span></a>
     </section>
 
-    <h2>Kelas 5 · Semester 2</h2>
+    <h2 id="kelas-5-semester-2">Kelas 5 · Semester 2</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 5 Semester 2">
       <a class="card" href="kelas-5-semester-2/matematika/index.html"><strong>∑ Math Lab</strong><span>Pecahan, desimal, perbandingan, pengukuran, volume, dan data dengan aktivitas reasoning yang lebih kompleks.</span></a>
       <a class="card ipas" href="kelas-5-semester-2/ipas/index.html"><strong>🧪 IPAS Experiment & Analysis</strong><span>Delapan misi untuk menguji gelombang, listrik, magnet, teknologi, tata surya, bumi, ekonomi, dan kota.</span></a>
     </section>
 
-    <h2>Kelas 6 · Semester 1</h2>
+    <h2 id="kelas-6">Kelas 6 · Semester 1</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 6 Semester 1">
       <a class="card" href="kelas-6-semester-1/matematika/index.html"><strong>∑ Math Lab</strong><span>Integrasi rasio, pecahan, pengukuran, geometri, data, dan problem solving untuk mendorong penalaran tinggi.</span></a>
       <a class="card ipas" href="kelas-6-semester-1/ipas/index.html"><strong>🧭 IPAS Problem Solving</strong><span>Tujuh misi untuk menganalisis evidence, memilih keputusan, dan mengevaluasi consequence.</span></a>
     </section>
 
-    <h2>Kelas 6 · Semester 2</h2>
+    <h2 id="kelas-6-semester-2">Kelas 6 · Semester 2</h2>
     <section class="grid" aria-label="Daftar pelajaran Kelas 6 Semester 2">
       <a class="card" href="kelas-6-semester-2/matematika/index.html"><strong>∑ Math Lab</strong><span>Penguatan konsep, penerapan, dan final challenge untuk persiapan akhir jenjang SD.</span></a>
       <a class="card ipas" href="kelas-6-semester-2/ipas/index.html"><strong>🧭 IPAS Problem Solving</strong><span>Enam mission besar tentang tata surya, bumi, teknologi, kota, dunia, dan Future Earth.</span></a>
