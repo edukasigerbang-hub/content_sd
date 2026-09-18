@@ -1,0 +1,6 @@
+/* Progressive image enhancement; PNG remains the fallback in existing styles. */
+body.indo-home{background-image:image-set(url("bg-home.webp") type("image/webp"),url("bg-home.png") type("image/png"))!important}
+.indo-home .hero{background-image:image-set(url("bg-board.webp") type("image/webp"),url("bg-board.png") type("image/png"))!important}
+.bi-bab1-root{background-image:image-set(url("bg-home.webp") type("image/webp"),url("bg-home.png") type("image/png"))!important}
+.bi-bab1-board{background-image:image-set(url("bg-board.webp") type("image/webp"),url("bg-board.png") type("image/png"))!important}
+.chapter{background-image:image-set(url("bg-btn.webp") type("image/webp"),url("bg-btn.png") type("image/png"))!important}
